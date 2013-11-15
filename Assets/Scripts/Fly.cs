@@ -26,7 +26,7 @@ public class Fly : MonoBehaviour
 			BulletHit bulletHit = hitObject.GetComponent<BulletHit> ();
 			if (bulletHit) {
 				Debug.Log ("HIT");
-				bulletHit.GetHit ();
+				bulletHit.GetHit (10f);
 			}
 //			Destroy (gameObject);
 		}
