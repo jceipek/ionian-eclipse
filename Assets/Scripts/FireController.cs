@@ -5,7 +5,7 @@ public class FireController : MonoBehaviour
 {
 
 	public Transform m_gunPos;
-	private GameObject m_bullet;
+	public GameObject m_bullet;
 
 	void OnEnable ()
 	{
