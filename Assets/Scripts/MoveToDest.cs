@@ -3,12 +3,9 @@ using System.Collections;
 
 public class MoveToDest : MonoBehaviour
 {
-	public float m_accelSpeed;
-	public float m_drag;
 	public Vector2 m_destination;
-	public Vector2 m_accel;
-	public Vector2 m_velocity;
-	public float m_torqueContant;
+	public float m_torqueContant = 5f;
+	public float m_movementConstant = 60f;
 	public Rigidbody2D m_rigidbody;
 
 
@@ -37,13 +34,12 @@ public class MoveToDest : MonoBehaviour
 //		Vector3 diff = (dest - transform.position);
 //		m_accel = diff.normalized * m_accelSpeed;
 
-		float k = 60f;
 		Vector3 vec = dest - transform.position;
+		float distance = vec.magnitude;
 		float torque = GetTorque(transform.up, vec.normalized);
-		Debug.Log (torque);
-		m_rigidbody.AddForce (vec.normalized * k);
+		m_rigidbody.AddForce (vec.normalized * m_movementConstant);
 
-		if (vec.magnitude > 1) {
+		if (distance > 1.9) {
 			m_rigidbody.AddTorque (torque);
 		}
 	}
