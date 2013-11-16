@@ -131,7 +131,7 @@ TextureImporter:
         height: 1444
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: texture_atlas_10
+    - name: ForcField-Sheild
       rect:
         serializedVersion: 2
         x: 1643

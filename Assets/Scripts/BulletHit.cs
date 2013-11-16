@@ -34,6 +34,16 @@ public class BulletHit : MonoBehaviour
 				return m_health / m_startHealth;
 		}
 
+		public float GetHealth ()
+		{
+				return m_health;
+		}
+
+		public float GetStartHealth ()
+		{
+				return m_startHealth;
+		}
+
 		IEnumerator Die ()
 		{
 				yield return new WaitForSeconds (0.5f);
