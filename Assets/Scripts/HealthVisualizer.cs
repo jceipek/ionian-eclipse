@@ -20,7 +20,7 @@ public class HealthVisualizer : MonoBehaviour
 		void Update ()
 		{
 				
-				if (m_bulletHit.GetHealth () >= m_bulletHit.m_startHealth / 2f) {
+				if (m_bulletHit.GetHealth () >= m_bulletHit.GetStartHealth () / 2f) {
 						m_shield.transform.localScale = Vector3.Lerp (m_minimumShieldSize, m_maximumShieldSize, m_bulletHit.GetHealthRatio () - 0.5f);
 
 				} else {

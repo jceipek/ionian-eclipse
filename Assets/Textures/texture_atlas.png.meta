@@ -62,10 +62,10 @@ TextureImporter:
     - name: Purple Bullet
       rect:
         serializedVersion: 2
-        x: 387
-        y: 1926
-        width: 19
-        height: 69
+        x: 376
+        y: 1908
+        width: 43
+        height: 120
       alignment: 7
       pivot: {x: .5, y: 0}
     - name: Blue Defender
