@@ -86,5 +86,14 @@ TextureImporter:
         height: 66
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: Red Minion Sheild
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1659
+        width: 120
+        height: 124
+      alignment: 9
+      pivot: {x: .5, y: .529999971}
   spritePackingTag: 
   userData: 
