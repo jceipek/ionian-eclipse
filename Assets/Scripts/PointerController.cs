@@ -10,8 +10,8 @@ public class PointerController : MonoBehaviour
 	private SlowdownAbility m_slowdownAbility;
 
 	public float abilityRadius = 3f;
-	public string m_healingButton;
-	public string m_slowdownButton;
+	public string m_healingButton = "Heal";
+	public string m_slowdownButton = "Slowdown";
 
 	void OnEnable ()
 	{
