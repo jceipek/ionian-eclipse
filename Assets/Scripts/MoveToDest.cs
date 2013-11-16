@@ -39,7 +39,9 @@ public class MoveToDest : MonoBehaviour
 		Vector3 vec = dest - transform.position;
 		float torque = GetTorque (transform.up, vec.normalized);
 
-		m_rigidbody.AddForce (vec.normalized * k);
+		if (vec.sqrMagnitude > 5f) {
+			m_rigidbody.AddForce (vec.normalized * k);
+		}
 
 		if (vec.magnitude > 1) {
 			m_rigidbody.AddTorque (torque);
