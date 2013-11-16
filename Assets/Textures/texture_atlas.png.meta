@@ -86,13 +86,22 @@ TextureImporter:
         height: 66
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: texture_atlas_5
+    - name: keyboardPlayer
       rect:
         serializedVersion: 2
-        x: 726
-        y: 1798
-        width: 122
-        height: 212
+        x: 691
+        y: 1793
+        width: 204
+        height: 206
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: mine
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 1875
+        width: 41
+        height: 39
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 
