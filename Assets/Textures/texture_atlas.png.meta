@@ -68,5 +68,14 @@ TextureImporter:
         height: 69
       alignment: 7
       pivot: {x: .5, y: 0}
+    - name: texture_atlas_3
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 1798
+        width: 161
+        height: 203
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 

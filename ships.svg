@@ -15,7 +15,7 @@
    version="1.1"
    inkscape:version="0.48.4 r9943 custom"
    sodipodi:docname="ships.svg"
-   inkscape:export-filename="/Users/jceipek/Development/ionian-eclipse/Assets/Textures/texture_atlas.png"
+   inkscape:export-filename="/Users/jceipek/Development/Group Projects/ionian-eclipse/Assets/Textures/texture_atlas.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -128,9 +128,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.4418552"
-     inkscape:cx="382.87534"
-     inkscape:cy="1675.4977"
+     inkscape:zoom="1.2497552"
+     inkscape:cx="274.11623"
+     inkscape:cy="1947.7099"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -381,7 +381,7 @@
        inkscape:export-xdpi="90"
        inkscape:export-filename="/Users/jceipek/Development/ionian-eclipse/Assets/Images/enemy.png"
        transform="matrix(1.9096212,0,0,1.9096212,-713.8175,-2248.5971)"
-       d="m 542.59858,113.98916 a 7.0724525,7.0724525 0 1 1 -14.14491,0 7.0724525,7.0724525 0 1 1 14.14491,0 z"
+       d="m 542.59858,113.98916 c 0,3.90601 -3.16645,7.07245 -7.07246,7.07245 -3.906,0 -7.07245,-3.16644 -7.07245,-7.07245 0,-3.90601 3.16645,-7.07245 7.07245,-7.07245 3.90601,0 7.07246,3.16644 7.07246,7.07245 z"
        sodipodi:ry="7.0724525"
        sodipodi:rx="7.0724525"
        sodipodi:cy="113.98916"
@@ -433,5 +433,10 @@
        inkscape:original-d="m 614.48352,-2033.7654 7.02629,-64.5724 7.02625,64.5724 z"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3497"
+       d="m 781.42874,-2106.3983 c -9.84195,0 -19.23301,2.4987 -27.93174,7.0268 1.845,9.2979 2.89858,19.0548 2.89858,29.1615 0,39.5082 -15.08607,74.1417 -37.68151,93.5447 -3.77505,-10.5878 -9.54896,-19.4989 -16.68878,-25.8237 -0.082,2.048 -0.0877,4.0726 -0.0877,6.1486 0,39.5083 15.08606,74.142 37.6815,93.5451 7.61464,-21.3568 23.43767,-36.0127 41.80978,-36.0127 18.37207,0 34.28298,14.6559 41.89761,36.0127 22.59543,-19.4031 37.59366,-54.0368 37.59366,-93.5451 0,-2.0189 -0.0113,-4.0683 -0.0877,-6.0605 -7.08234,6.3199 -12.92984,15.1929 -16.68877,25.7356 -22.59545,-19.403 -37.59368,-54.0365 -37.59368,-93.5447 0,-10.1047 0.96943,-19.8653 2.81075,-29.1615 -8.70127,-4.5281 -18.08981,-7.0268 -27.93175,-7.0268 z"
+       style="fill:#55ddff;fill-opacity:1;stroke:none" />
   </g>
 </svg>
