@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MoveToDest : MonoBehaviour
 {
+	public float m_accelSpeed;
+	public float m_drag;
 	public Vector2 m_destination;
-	public float m_torqueContant = 5f;
-	public float m_movementConstant = 60f;
+	public Vector2 m_accel;
+	public Vector2 m_velocity;
+	public float m_torqueContant;
 	public Rigidbody2D m_rigidbody;
 
 
@@ -20,26 +23,25 @@ public class MoveToDest : MonoBehaviour
 	}
 	
 
-	private float GetTorque(Vector3 fwd, Vector3 targetDir) {
-		var angle = Vector3.Angle(fwd, targetDir);
-		Vector3 perp = Vector3.Cross(fwd, targetDir);
+	private float GetTorque (Vector3 fwd, Vector3 targetDir)
+	{
+		var angle = Vector3.Angle (fwd, targetDir);
+		Vector3 perp = Vector3.Cross (fwd, targetDir);
 		int direction = (int)perp.normalized.z;
 		return m_torqueContant * angle * direction;
 	}
 
 	void Move ()
 	{
-//		Vector3 vel;
 		Vector3 dest = m_destination;
-//		Vector3 diff = (dest - transform.position);
-//		m_accel = diff.normalized * m_accelSpeed;
 
+		float k = 60f;
 		Vector3 vec = dest - transform.position;
-		float distance = vec.magnitude;
-		float torque = GetTorque(transform.up, vec.normalized);
-		m_rigidbody.AddForce (vec.normalized * m_movementConstant);
+		float torque = GetTorque (transform.up, vec.normalized);
 
-		if (distance > 1.9) {
+		m_rigidbody.AddForce (vec.normalized * k);
+
+		if (vec.magnitude > 1) {
 			m_rigidbody.AddTorque (torque);
 		}
 	}
