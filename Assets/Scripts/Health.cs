@@ -5,7 +5,11 @@ public class Health : MonoBehaviour
 {
 	public float m_initialHealth = 100f;
 	private float m_health;
+
 	private GameObject m_shardPrefab;
+
+	public Transform m_respawner;
+	public string m_shipType;
 
 	void OnEnable ()
 	{
@@ -26,6 +30,10 @@ public class Health : MonoBehaviour
 		return m_health;
 	}
 
+	public void SetRespawner (Transform newSpawner)
+	{
+		m_respawner = newSpawner;
+	}
 	
 	IEnumerator Die ()
 	{
@@ -35,6 +43,9 @@ public class Health : MonoBehaviour
 			GameObject shard = Instantiate (m_shardPrefab, transform.position + direction, Quaternion.identity) as GameObject;
 			FlyAway flyAway = shard.GetComponent<FlyAway> ();
 			flyAway.InitWithDirectionAndTime (direction, 10f);
+		}
+		if (m_respawner) {
+			m_respawner.gameObject.SendMessage ("Respawn", m_shipType);
 		}
 		Destroy (gameObject);
 	}
