@@ -62,10 +62,10 @@ TextureImporter:
     - name: Purple Bullet
       rect:
         serializedVersion: 2
-        x: 387
-        y: 1926
-        width: 19
-        height: 69
+        x: 376
+        y: 1908
+        width: 43
+        height: 120
       alignment: 7
       pivot: {x: .5, y: 0}
     - name: Blue Defender
@@ -116,10 +116,10 @@ TextureImporter:
     - name: Circle
       rect:
         serializedVersion: 2
-        x: 1309
-        y: 1728
-        width: 288
-        height: 288
+        x: 1314
+        y: 1730
+        width: 269
+        height: 269
       alignment: 0
       pivot: {x: .5, y: .5}
     - name: Big Ship
@@ -129,6 +129,15 @@ TextureImporter:
         y: 142
         width: 1182
         height: 1444
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: texture_atlas_10
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 1739
+        width: 268
+        height: 267
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 

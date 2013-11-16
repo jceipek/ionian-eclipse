@@ -4,15 +4,17 @@ using System.Collections;
 public class FlyAway : MonoBehaviour
 {
 	private Vector3 m_direction;
-	private float m_force = 30f;
+	private float m_force = 100f;
+	private SpriteRenderer m_renderer;
 
-	void Start ()
+	void OnEnable ()
 	{
-		StartCoroutine (Die (1f));
+		m_renderer = GetComponent<SpriteRenderer> ();
 	}
 
-	public void InitWithDirection (Vector3 direction)
+	public void InitWithDirectionAndTime (Vector3 direction, float seconds)
 	{
+		StartCoroutine (Die (seconds));
 		m_direction = direction.normalized;
 	}
 
@@ -24,7 +26,15 @@ public class FlyAway : MonoBehaviour
 	
 	IEnumerator Die (float seconds)
 	{
-		yield return new WaitForSeconds (seconds);
+		float total = seconds;
+		float delta = 0.01f;
+		while (total > 0) {
+			yield return new WaitForSeconds (delta);
+			total -= delta;
+			Color color = m_renderer.color;
+			color.a = total / seconds;
+			m_renderer.color = color;
+		}
 		Destroy (gameObject);
 	}
 }
