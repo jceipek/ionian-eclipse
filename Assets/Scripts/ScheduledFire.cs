@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent (typeof(FireAbility))]
 public class ScheduledFire : MonoBehaviour
 {
-
+	public float m_fireFrequencySeconds;
 	private FireAbility m_fireAbility;
 	void OnEnable ()
 	{
@@ -20,7 +20,7 @@ public class ScheduledFire : MonoBehaviour
 	IEnumerator Fire ()
 	{
 		while (true) {
-			yield return new WaitForSeconds (0.2f);
+			yield return new WaitForSeconds (m_fireFrequencySeconds);
 			m_fireAbility.Fire ();
 		}
 	}

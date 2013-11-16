@@ -95,5 +95,23 @@ TextureImporter:
         height: 124
       alignment: 9
       pivot: {x: .5, y: .529999971}
+    - name: keyboardPlayer
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 1793
+        width: 204
+        height: 206
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: mine
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 1875
+        width: 41
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
