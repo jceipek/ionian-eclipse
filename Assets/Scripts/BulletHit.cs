@@ -5,13 +5,21 @@ public class BulletHit : MonoBehaviour
 {
 		public float m_startHealth = 100f;
 
-		private float m_health;
+		public float m_health;
+		
+		public Transform m_respawner;
+		
+		public string m_shipType;
 	
 		private Rigidbody2D m_rigidbody;
 
 		private GameObject m_shardPrefab;
-
-
+		
+		public void SetRespawner (Transform newSpawner)
+		{
+				m_respawner = newSpawner;
+		}
+		
 		void OnEnable ()
 		{
 				m_rigidbody = GetComponent<Rigidbody2D> ();
@@ -42,6 +50,9 @@ public class BulletHit : MonoBehaviour
 						GameObject shard = Instantiate (m_shardPrefab, transform.position + direction, Quaternion.identity) as GameObject;
 						FlyAway flyAway = shard.GetComponent<FlyAway> ();
 						flyAway.InitWithDirection (direction);
+				}
+				if (m_respawner) {
+						m_respawner.gameObject.SendMessage ("Respawn", m_shipType);
 				}
 				Destroy (gameObject);
 		}
