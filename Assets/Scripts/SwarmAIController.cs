@@ -7,7 +7,7 @@ public class SwarmAIController : MonoBehaviour
 
 	public float m_distanceOffset = 4f;
 	private MoveToDest m_moveToDest;
-	private Vector3 m_closestPlayerPos;
+	private Transform m_closestPlayer;
 	
 	private Collider2D[] m_overlapCircleResults = new Collider2D[10];
 
@@ -25,7 +25,10 @@ public class SwarmAIController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		Vector3 target = m_closestPlayerPos;
+		if (m_closestPlayer == null) {
+			m_closestPlayer = transform;
+		}
+		Vector3 target = m_closestPlayer.position;
 		Vector3 offset = target - transform.position;
 		offset.Normalize ();
 		target -= offset * m_distanceOffset;
@@ -41,12 +44,12 @@ public class SwarmAIController : MonoBehaviour
 			foreach (var player in players) {
 				float dist = (player.transform.position - transform.position).sqrMagnitude;
 				if (dist < closest) {
-					m_closestPlayerPos = player.transform.position;
+					m_closestPlayer = player.transform;
 					closest = dist;
 				}
 			}
 		} else {
-			m_closestPlayerPos = transform.position;
+			m_closestPlayer = transform;
 		}
 	}
 
