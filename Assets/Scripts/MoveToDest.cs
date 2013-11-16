@@ -8,7 +8,7 @@ public class MoveToDest : MonoBehaviour
 	public Vector2 m_destination;
 	public Vector2 m_accel;
 	public Vector2 m_velocity;
-	public float m_torqueContant;
+	public float m_torqueForce;
 	public Rigidbody2D m_rigidbody;
 
 
@@ -28,7 +28,7 @@ public class MoveToDest : MonoBehaviour
 		var angle = Vector3.Angle (fwd, targetDir);
 		Vector3 perp = Vector3.Cross (fwd, targetDir);
 		int direction = (int)perp.normalized.z;
-		return m_torqueContant * angle * direction;
+		return m_torqueForce * angle * direction;
 	}
 
 	void Move ()
