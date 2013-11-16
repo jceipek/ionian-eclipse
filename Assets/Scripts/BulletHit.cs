@@ -22,16 +22,16 @@ public class BulletHit : MonoBehaviour
 
 		m_health -= damage;
 		if (m_health <= 0) {
-			StartCoroutine (Die (transform.position));
+			StartCoroutine (Die ());
 		}
 	}
 
-	IEnumerator Die (Vector3 position)
+	IEnumerator Die ()
 	{
 		yield return new WaitForSeconds (0.5f);
 		for (var i = 0; i < 10; i++) {
 			Vector3 direction = Random.insideUnitCircle;
-			GameObject shard = Instantiate (m_shardPrefab, position + direction, Quaternion.identity) as GameObject;
+			GameObject shard = Instantiate (m_shardPrefab, transform.position + direction, Quaternion.identity) as GameObject;
 			FlyAway flyAway = shard.GetComponent<FlyAway> ();
 			flyAway.InitWithDirection (direction);
 		}
