@@ -10,9 +10,22 @@ public class MineBehavior : MonoBehaviour
 	private Collider2D[] m_overlapCircleResults = new Collider2D[20];
 	void Start ()
 	{
-		StartCoroutine (Explode (2f));
+		StartCoroutine (Pulse (2f));
 	}
-	
+
+	IEnumerator Pulse (float seconds)
+	{
+		float total = seconds;
+		float delta = 0.01f;
+		while (total > 0) {
+			yield return new WaitForSeconds (delta);
+			total -= delta;
+			m_visualRadius.transform.localScale = Vector3.one * Mathf.Sin (total);
+		}
+
+		StartCoroutine (Explode (0.1f));
+	}
+
 	IEnumerator Explode (float seconds)
 	{
 		float total = seconds;
@@ -26,7 +39,7 @@ public class MineBehavior : MonoBehaviour
 		CheckHit ();
 		Destroy (gameObject);
 	}
-	
+
 	void CheckHit ()
 	{
 		int hitCount = Physics2D.OverlapCircleNonAlloc ((Vector2)transform.position, 6f, m_overlapCircleResults);
