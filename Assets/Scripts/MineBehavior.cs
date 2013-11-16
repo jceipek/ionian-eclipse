@@ -6,6 +6,7 @@ public class MineBehavior : MonoBehaviour
 {
 	public float m_force = 1000f;	
 	public float m_damage = 30f;
+	public GameObject m_visualRadius;
 	private Collider2D[] m_overlapCircleResults = new Collider2D[20];
 	void Start ()
 	{
@@ -14,7 +15,14 @@ public class MineBehavior : MonoBehaviour
 	
 	IEnumerator Explode (float seconds)
 	{
-		yield return new WaitForSeconds (seconds);
+		float total = seconds;
+		float delta = 0.01f;
+		while (total > 0) {
+			yield return new WaitForSeconds (delta);
+			total -= delta;
+			m_visualRadius.transform.localScale = Vector3.Lerp (Vector3.one * 6f, Vector3.zero, total / seconds);
+		}
+
 		CheckHit ();
 		Destroy (gameObject);
 	}
