@@ -5,6 +5,7 @@ public class Fly : MonoBehaviour
 {
 	public float m_speed = 10f;
 	public float m_force = 1000f;
+	public float m_damage = 1f;
 	private Vector3 m_previousPosition;
 	private RaycastHit2D[] m_linecastResults = new RaycastHit2D[1]; // For efficient caching
 	
@@ -29,7 +30,7 @@ public class Fly : MonoBehaviour
 				GameObject hitObject = hit.collider.gameObject;
 				BulletHit bulletHit = hitObject.GetComponent<BulletHit> ();
 				if (bulletHit) {
-					bulletHit.GetHit (10f, transform.up * m_force);
+					bulletHit.GetHit (m_damage, transform.up * m_force);
 					Destroy (gameObject);
 				}
 			}
