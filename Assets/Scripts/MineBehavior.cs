@@ -20,7 +20,7 @@ public class MineBehavior : MonoBehaviour
 		while (total > 0) {
 			yield return new WaitForSeconds (delta);
 			total -= delta;
-			m_visualRadius.transform.localScale = Vector3.one * Mathf.Sin (total);
+			m_visualRadius.transform.localScale = Vector3.one * Mathf.Sin (1 / total * 10f);
 		}
 
 		StartCoroutine (Explode (0.1f));
