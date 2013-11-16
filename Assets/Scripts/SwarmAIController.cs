@@ -9,6 +9,8 @@ public class SwarmAIController : MonoBehaviour
 	private MoveToDest m_moveToDest;
 	private Vector3 m_closestPlayerPos;
 	
+	private Collider2D[] m_overlapCircleResults = new Collider2D[10];
+
 	// Use this for initialization
 	void OnEnable ()
 	{
@@ -48,11 +50,25 @@ public class SwarmAIController : MonoBehaviour
 		}
 	}
 
+	void PushAwayFriends ()
+	{
+		int hitCount = Physics2D.OverlapCircleNonAlloc ((Vector2)transform.position, 3f, m_overlapCircleResults);
+		for (var i = 0; i < hitCount; i++) {
+			Collider2D friend = m_overlapCircleResults [i];
+			if (friend) {
+				if (friend.tag == "Enemy") {
+					friend.rigidbody2D.AddForce ((transform.position - friend.transform.position) * -40f);
+				}
+			}
+		}
+	}
+
 	IEnumerator LowFrequencyUpdater ()
 	{
 		while (true) {
 			yield return new WaitForSeconds (0.1f);
 			UpdateClosestPlayerPos ();
+			PushAwayFriends ();
 		}
 	}
 }
