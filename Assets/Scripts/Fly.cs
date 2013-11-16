@@ -7,8 +7,7 @@ public class Fly : MonoBehaviour
 	public float m_force = 1000f;
 	private Vector3 m_previousPosition;
 	private RaycastHit2D[] m_linecastResults = new RaycastHit2D[1]; // For efficient caching
-
-	// Use this for initialization
+	
 	void Start ()
 	{
 		StartCoroutine (Die (1f));
@@ -20,8 +19,7 @@ public class Fly : MonoBehaviour
 		yield return new WaitForSeconds (seconds);
 		Destroy (gameObject);
 	}
-
-	// Update is called once per frame
+	
 	void FixedUpdate ()
 	{
 		int hitCount = Physics2D.LinecastNonAlloc (m_previousPosition, transform.position + transform.up * (Time.fixedDeltaTime * m_speed), m_linecastResults);

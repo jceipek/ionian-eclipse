@@ -4,8 +4,10 @@ using System.Collections;
 public class FireController : MonoBehaviour
 {
 
-	public Transform m_gunPos;
-	public GameObject m_bullet;
+	public string m_fireButton;
+	public bool m_fireButtonIsAxis;
+	public Transform[] m_gunPos;
+	private GameObject m_bullet;
 
 	void OnEnable ()
 	{
@@ -21,8 +23,12 @@ public class FireController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetButtonDown ("Fire")) {
-			Instantiate (m_bullet, m_gunPos.position, transform.rotation);
+		bool fireButton = !m_fireButtonIsAxis && Input.GetButtonDown (m_fireButton);
+		bool fireAxis = m_fireButtonIsAxis && (Input.GetAxis (m_fireButton) > 0.1f);
+		if (fireButton || fireAxis) {
+			foreach (var gunTransform in m_gunPos) {
+				Instantiate (m_bullet, gunTransform.position, transform.rotation);
+			}
 		}
 	}
 }

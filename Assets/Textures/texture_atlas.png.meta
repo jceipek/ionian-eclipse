@@ -41,7 +41,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: texture_atlas_0
+    - name: Red Minion
       rect:
         serializedVersion: 2
         x: 26
@@ -50,7 +50,7 @@ TextureImporter:
         height: 104
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: texture_atlas_1
+    - name: Green Avenger
       rect:
         serializedVersion: 2
         x: 168
@@ -59,7 +59,7 @@ TextureImporter:
         height: 239
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: texture_atlas_2
+    - name: Purple Bullet
       rect:
         serializedVersion: 2
         x: 387
@@ -68,13 +68,22 @@ TextureImporter:
         height: 69
       alignment: 7
       pivot: {x: .5, y: 0}
-    - name: texture_atlas_3
+    - name: Blue Defender
       rect:
         serializedVersion: 2
         x: 476
         y: 1798
         width: 161
         height: 203
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Shard
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1808
+        width: 60
+        height: 66
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 
