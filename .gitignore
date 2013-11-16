@@ -3,3 +3,7 @@ Temp/*
 *.userprefs
 *.csproj
 *.sln
+Assembly-UnityScript-Editor-vs.unityproj
+Assembly-UnityScript-Editor.unityproj
+Assembly-UnityScript-firstpass-vs.unityproj
+Assembly-UnityScript-firstpass.unityproj
