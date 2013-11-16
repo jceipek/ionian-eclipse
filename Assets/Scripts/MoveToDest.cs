@@ -9,7 +9,7 @@ public class MoveToDest : MonoBehaviour
 	public Vector2 m_accel;
 	public Vector2 m_velocity;
 	public float m_torqueForce;
-	public Rigidbody2D m_rigidbody;
+	private Rigidbody2D m_rigidbody;
 
 
 	void OnEnable ()
