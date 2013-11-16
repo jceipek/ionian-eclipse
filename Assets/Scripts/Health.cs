@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
 	void OnEnable ()
 	{
 		m_shardPrefab = Resources.Load ("Shard") as GameObject;
+		m_health = m_initialHealth;
 	}
 
 	void Update ()
@@ -25,14 +26,15 @@ public class Health : MonoBehaviour
 		return m_health;
 	}
 
+	
 	IEnumerator Die ()
 	{
 		yield return new WaitForSeconds (0.5f);
-		for (var i = 0; i < 10; i++) {
+		for (var i = 0; i < 5; i++) {
 			Vector3 direction = Random.insideUnitCircle;
 			GameObject shard = Instantiate (m_shardPrefab, transform.position + direction, Quaternion.identity) as GameObject;
 			FlyAway flyAway = shard.GetComponent<FlyAway> ();
-//			flyAway.InitWithDirectionAndTime (direction, 10f);
+			flyAway.InitWithDirectionAndTime (direction, 10f);
 		}
 		Destroy (gameObject);
 	}
