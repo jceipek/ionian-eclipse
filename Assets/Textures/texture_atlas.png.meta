@@ -140,5 +140,23 @@ TextureImporter:
         height: 267
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: EnemyHead
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 1398
+        width: 227
+        height: 297
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnemySegment
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 1046
+        width: 195
+        height: 300
+      alignment: 9
+      pivot: {x: .507678509, y: .160612792}
   spritePackingTag: 
   userData: 

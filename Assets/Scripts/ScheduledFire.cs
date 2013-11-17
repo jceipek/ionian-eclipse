@@ -5,6 +5,7 @@ using System.Collections;
 public class ScheduledFire : MonoBehaviour
 {
 	public float m_fireFrequencySeconds;
+	public float m_lookaheadDistance = 1.0f;
 	private FireAbility m_fireAbility;
 	private RaycastHit2D[] m_linecastResults = new RaycastHit2D[1]; // For efficient caching
 
@@ -26,7 +27,7 @@ public class ScheduledFire : MonoBehaviour
 				
 		while (true) {	
 			yield return new WaitForSeconds (m_fireFrequencySeconds);
-			hit = Physics2D.LinecastNonAlloc (transform.position + transform.up, transform.position + transform.up * 10f, m_linecastResults);
+			hit = Physics2D.LinecastNonAlloc (transform.position + transform.up * m_lookaheadDistance, transform.position + transform.up * 10f, m_linecastResults);
 			if (hit > 0) {
 				enemyInTheWay = m_linecastResults [0].collider.CompareTag ("Enemy");							
 				if (!enemyInTheWay) {
@@ -35,6 +36,7 @@ public class ScheduledFire : MonoBehaviour
 			} else {
 				m_fireAbility.Fire ();
 			}
+			m_fireAbility.Fire ();
 		}
 	}
 }

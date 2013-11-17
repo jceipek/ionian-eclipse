@@ -3,13 +3,14 @@ using System.Collections;
 
 public class MoveToDest : MonoBehaviour
 {
-	private RaycastHit2D[] m_linecastResult = new RaycastHit2D[1]; // For efficient caching
 	public Vector2 m_destination;
 	public float m_torqueForce;
 	public float m_linearForce;
-	private Rigidbody2D m_rigidbody;
 	public float m_distanceOffset;
 	public float m_followDistance = 3f;
+	public float m_lookaheadDistance = 1.0f;
+	private RaycastHit2D[] m_linecastResult = new RaycastHit2D[1]; // For efficient caching
+	private Rigidbody2D m_rigidbody;
 
 
 	void OnEnable ()
@@ -56,7 +57,7 @@ public class MoveToDest : MonoBehaviour
 	
 	void BufferLogic ()
 	{
-		int hitCount = Physics2D.LinecastNonAlloc (transform.up + transform.position, transform.position + transform.up * m_followDistance, m_linecastResult);
+		int hitCount = Physics2D.LinecastNonAlloc (transform.up * m_lookaheadDistance + transform.position, transform.position + transform.up * m_followDistance, m_linecastResult);
 		if (hitCount > 0) {
 			m_distanceOffset = (transform.position - (Vector3)m_linecastResult [0].point).magnitude + ((Vector3)m_destination - transform.position).magnitude;
 		}
