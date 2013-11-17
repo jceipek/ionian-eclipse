@@ -3,14 +3,24 @@ using System.Collections;
 
 public class Fly : MonoBehaviour
 {
-	public float m_speed = 10f;
-	public float m_force = 1000f;
-	public float m_damage = 1f;
+	private float m_speed = 10f;
+	private float m_force = 1000f;
+	private float m_damage = 1f;
 	private Vector3 m_previousPosition;
 	private RaycastHit2D[] m_linecastResults = new RaycastHit2D[1]; // For efficient caching
-	
-	void Start ()
+	private SpriteRenderer m_spriteRenderer;
+
+	void OnEnable ()
 	{
+		m_spriteRenderer = GetComponent<SpriteRenderer> ();
+	}
+
+	public void Init (Color color, float speed = 10f, float force = 1000f, float damage = 1f)
+	{
+		m_spriteRenderer.color = color;
+		m_speed = speed;
+		m_force = force;
+		m_damage = damage;
 		StartCoroutine (Die (1f));
 		m_previousPosition = transform.position;
 	}

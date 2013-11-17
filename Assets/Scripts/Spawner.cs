@@ -4,29 +4,30 @@ using System.Collections;
 public class Spawner : MonoBehaviour
 {
 
-	public GameObject m_enemyPrefab;
+		public GameObject m_enemyPrefab;
+		public float m_spawningRate;
 
-	void OnEnable ()
-	{
-		m_enemyPrefab = Resources.Load ("Enemy") as GameObject;
-	}
-	
-	void Start ()
-	{
-		StartCoroutine (Spawn ());	
-	}
-
-	IEnumerator Spawn ()
-	{
-		while (true) {
-			yield return (new WaitForSeconds (2f));
-			Instantiate (m_enemyPrefab, transform.position, Quaternion.identity);
+		void OnEnable ()
+		{
+				m_enemyPrefab = Resources.Load ("Enemy") as GameObject;
 		}
-	}
+	
+		void Start ()
+		{
+				StartCoroutine (Spawn ());	
+		}
 
-	// Update is called once per frame
-	void Update ()
-	{
+		IEnumerator Spawn ()
+		{
+				while (true) {
+						yield return (new WaitForSeconds (m_spawningRate));
+						Instantiate (m_enemyPrefab, transform.position, Quaternion.identity);
+				}
+		}
 
-	}
+		// Update is called once per frame
+		void Update ()
+		{
+
+		}
 }
