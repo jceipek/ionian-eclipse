@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
 {
 	public float m_initialHealth = 100f;
 	private float m_health;
+	private bool m_isAlive = true;
 
 	private GameObject m_shardPrefab;
 	
@@ -23,7 +24,8 @@ public class Health : MonoBehaviour
 		if (m_health > m_initialHealth) {
 			m_health = m_initialHealth;
 		}
-		if (m_health <= 0) {
+		if (m_health <= 0 && m_isAlive) {
+			m_isAlive = false;
 			StartCoroutine (Die ());
 		}
 		return m_health;
@@ -40,12 +42,11 @@ public class Health : MonoBehaviour
 			flyAway.InitWithDirectionAndTime (direction, 10f);
 		}
 
-		Destroy (gameObject);
-
 		if (m_respawnAbility) {
 			m_respawnAbility.Respawn ();
 		}
 
+		Destroy (gameObject);
 	}
 
 	public float GetHealthRatio ()
