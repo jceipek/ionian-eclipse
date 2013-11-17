@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_destination: {x: 0, y: 0}
   m_torqueForce: 5
-  m_linearForce: 5
+  m_linearForce: 20
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_shield: {fileID: 21200002}
   m_startColor: {r: 1, g: 1, b: 1, a: 1}
-  m_endColor: {r: .882352948, g: 0, b: .0304259174, a: 1}
+  m_endColor: {r: .882352948, g: 0, b: .0304259174, a: 0}
   m_minimumShieldSize: {x: 1, y: 1, z: 1}
   m_maximumShieldSize: {x: 1, y: 1, z: 1}
 --- !u!114 &11400012

@@ -7,16 +7,12 @@ public class RespawnController : MonoBehaviour
 
 	public void Respawn (string shipName)
 	{
-		//Wait some time
 		StartCoroutine (RespawnInTime (shipName));
-		//Debug.Log ("Respawning");
-				
 	}
 	IEnumerator RespawnInTime (string shipName)
 	{
 		yield return new WaitForSeconds (m_respawnTime); 
-		GameObject newShip = Instantiate (Resources.Load (shipName), transform.position, Quaternion.identity) as GameObject;
-		//Debug.Log ("Respawned");
+		Instantiate (Resources.Load (shipName), transform.position, Quaternion.identity);
 	}
 		
 }

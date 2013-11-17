@@ -24,10 +24,10 @@ public class Spawner : MonoBehaviour
 						Instantiate (m_enemyPrefab, transform.position, Quaternion.identity);
 				}
 		}
-
-		// Update is called once per frame
-		void Update ()
+	
+		void OnDrawGizmos ()
 		{
-
+				Gizmos.color = Color.cyan;
+				Gizmos.DrawCube (transform.position, Vector3.one * 2f);
 		}
 }

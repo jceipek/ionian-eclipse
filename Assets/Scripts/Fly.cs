@@ -21,7 +21,7 @@ public class Fly : MonoBehaviour
 		m_speed = speed;
 		m_force = force;
 		m_damage = damage;
-		StartCoroutine (Die (1f));
+		StartCoroutine (Die (10f));
 		m_previousPosition = transform.position;
 	}
 
