@@ -9,6 +9,7 @@ public class FireController : MonoBehaviour
 	public bool m_fireButtonIsAxis;
 	private FireAbility m_fireAbility;
 
+
 	void OnEnable ()
 	{
 		m_fireAbility = GetComponent<FireAbility> ();
