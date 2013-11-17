@@ -17,16 +17,15 @@ public class Health : MonoBehaviour
 		m_health = m_initialHealth;
 	}
 
-	void Update ()
-	{
-		if (m_health <= 0) {
-			StartCoroutine (Die ());
-		}
-	}
-
 	public float ChangeHealthBy (float delta)
 	{
 		m_health += delta;
+		if (m_health > m_initialHealth) {
+			m_health = m_initialHealth;
+		}
+		if (m_health <= 0) {
+			StartCoroutine (Die ());
+		}
 		return m_health;
 	}
 
@@ -58,11 +57,13 @@ public class Health : MonoBehaviour
 		return m_health / m_initialHealth;
 	}
 
-	public float GetHealth () {
+	public float GetHealth ()
+	{
 		return m_health;
 	}
 
-	public float GetStartHealth () {
+	public float GetStartHealth ()
+	{
 		return m_initialHealth;
 	}
 
