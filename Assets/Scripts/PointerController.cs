@@ -21,16 +21,17 @@ public class PointerController : MonoBehaviour
 	
 	void Update ()
 	{
+		Vector2 mousePosition = (Camera.main.ScreenPointToRay (Input.mousePosition)).origin;
 
 		// Heal friends within a radius of your mouse, if you click the heal button
 		if (Input.GetButtonDown (m_healingButton)) {
-			Collider2D[] friends = GetFriendsNearLocation ((Vector2)Input.mousePosition);
+			Collider2D[] friends = GetFriendsNearLocation (mousePosition);
 			m_healingAbility.Heal (friends);
 		}
 
 		// Slow down ships within a radius of your mouse, if you click the slowdown button
 		if (Input.GetButtonDown (m_slowdownButton)) {
-			Collider2D[] ships = GetEverythingNearLocation ((Vector2)Input.mousePosition);
+			Collider2D[] ships = GetEverythingNearLocation (mousePosition);
 			m_slowdownAbility.Slowdown (ships);
 		}
 	}
