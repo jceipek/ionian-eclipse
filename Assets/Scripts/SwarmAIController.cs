@@ -73,8 +73,7 @@ public class SwarmAIController : MonoBehaviour
 				int hitCount = Physics2D.LinecastNonAlloc (transform.up + transform.position, transform.position + transform.up * 5f, m_linecastResult);
 				if (hitCount > 0) {	
 						m_distanceOffset = (transform.position - (Vector3)m_linecastResult [0].point).magnitude + (m_closestPlayer.position - transform.position).magnitude;
-						Debug.DrawLine (transform.up + transform.position, (Vector3)m_linecastResult [0].point, Color.red, 1f);
-			
+
 				}
 		}
 	
