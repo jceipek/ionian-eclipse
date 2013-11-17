@@ -4,26 +4,30 @@ using System.Collections;
 [RequireComponent (typeof(Health))]
 public class HealthVisualizer : MonoBehaviour
 {
-	public SpriteRenderer m_sheild;
-	private Health m_health;
-	public Color startColor = Color.green;
-	public Color endColor = new Color (0.1F, 0.8F, 0.1F, 0.5F);
-	public Color lerpedColor = Color.white;
 
+	public SpriteRenderer m_shield;
+	private Health m_health;
+	public Color m_startColor = Color.white;
+	public Color m_endColor = new Color (0.1F, 0.8F, 0.1F, 0.5F);
+	public Vector3 m_minimumShieldSize;
+	public Vector3 m_maximumShieldSize;
 
 	void OnEnable ()
 	{
 		m_health = GetComponent<Health> ();
-				
+		if (!m_health) {
+			Debug.Log (gameObject.name);
+		}
 	}
 
 	// Update is called once per frame
 	void Update ()
 	{
-		//Returns a float of value between 0 to 1000
-		//3rd argument only accepts values between 0 to 1 
-		lerpedColor = Color.Lerp (endColor, startColor, m_health.GetHealthRatio ());
-		m_sheild.color = lerpedColor;
-	
+		if (m_health.GetHealth () >= m_health.GetStartHealth () / 2f) {
+			m_shield.transform.localScale = Vector3.Lerp (m_minimumShieldSize, m_maximumShieldSize, m_health.GetHealthRatio () * 2f - 1f);
+		} else {
+			Color lerpedColor = Color.Lerp (m_endColor, m_startColor, m_health.GetHealthRatio ());
+			m_shield.color = lerpedColor;
+		}
 	}
 }

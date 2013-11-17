@@ -34,19 +34,22 @@ public class Health : MonoBehaviour
 	{
 		m_respawner = newSpawner;
 	}
-	
+
 	IEnumerator Die ()
 	{
 		yield return new WaitForSeconds (0.5f);
+
 		for (var i = 0; i < 5; i++) {
 			Vector3 direction = Random.insideUnitCircle;
 			GameObject shard = Instantiate (m_shardPrefab, transform.position + direction, Quaternion.identity) as GameObject;
 			FlyAway flyAway = shard.GetComponent<FlyAway> ();
 			flyAway.InitWithDirectionAndTime (direction, 10f);
 		}
+
 		if (m_respawner) {
 			m_respawner.gameObject.SendMessage ("Respawn", m_shipType);
 		}
+
 		Destroy (gameObject);
 	}
 
@@ -55,6 +58,12 @@ public class Health : MonoBehaviour
 		return m_health / m_initialHealth;
 	}
 
+	public float GetHealth () {
+		return m_health;
+	}
 
-	
+	public float GetStartHealth () {
+		return m_initialHealth;
+	}
+
 }
