@@ -6,6 +6,7 @@ public class MineBehavior : MonoBehaviour
 	public float m_force = 1000f;	
 	public float m_damage = 30f;
 	public float m_radius = 6f;
+	public float m_secondsToExplode = 2f;
 	public GameObject m_visualRadius;
 	private Collider2D[] m_overlapCircleResults = new Collider2D[20];
 	private float m_spriteWidth;
@@ -23,7 +24,7 @@ public class MineBehavior : MonoBehaviour
 
 	void Start ()
 	{
-		StartCoroutine (Pulse (2f));
+		StartCoroutine (Pulse (m_secondsToExplode));
 	}
 
 	IEnumerator Pulse (float seconds)

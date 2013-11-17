@@ -24,7 +24,7 @@ public class HealthVisualizer : MonoBehaviour
 	void Update ()
 	{
 		if (m_health.GetHealth () >= m_health.GetStartHealth () / 2f) {
-			m_shield.transform.localScale = Vector3.Lerp (m_minimumShieldSize, m_maximumShieldSize, m_health.GetHealthRatio () * 2f - 1f);
+			m_shield.transform.localScale = Vector3.Slerp (m_minimumShieldSize, m_maximumShieldSize, m_health.GetHealthRatio () * 2f - 1f);
 		} else {
 			Color lerpedColor = Color.Lerp (m_endColor, m_startColor, m_health.GetHealthRatio ());
 			m_shield.color = lerpedColor;
