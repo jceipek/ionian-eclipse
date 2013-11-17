@@ -7,14 +7,14 @@ public class Health : MonoBehaviour
 	private float m_health;
 
 	private GameObject m_shardPrefab;
-
-	public Transform m_respawner;
-	public string m_shipType;
+	
+	private RespawnAbility m_respawnAbility;
 
 	void OnEnable ()
 	{
 		m_shardPrefab = Resources.Load ("Shard") as GameObject;
 		m_health = m_initialHealth;
+		m_respawnAbility = GetComponent<RespawnAbility> ();
 	}
 
 	public float ChangeHealthBy (float delta)
@@ -28,12 +28,7 @@ public class Health : MonoBehaviour
 		}
 		return m_health;
 	}
-
-	public void SetRespawner (Transform newSpawner)
-	{
-		m_respawner = newSpawner;
-	}
-
+	
 	IEnumerator Die ()
 	{
 		yield return new WaitForSeconds (0.5f);
@@ -45,11 +40,12 @@ public class Health : MonoBehaviour
 			flyAway.InitWithDirectionAndTime (direction, 10f);
 		}
 
-		if (m_respawner) {
-			m_respawner.gameObject.SendMessage ("Respawn", m_shipType);
+		Destroy (gameObject);
+
+		if (m_respawnAbility) {
+			m_respawnAbility.Respawn ();
 		}
 
-		Destroy (gameObject);
 	}
 
 	public float GetHealthRatio ()

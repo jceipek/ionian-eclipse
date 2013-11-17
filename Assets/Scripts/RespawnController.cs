@@ -16,7 +16,6 @@ public class RespawnController : MonoBehaviour
 	{
 		yield return new WaitForSeconds (m_respawnTime); 
 		GameObject newShip = Instantiate (Resources.Load (shipName), transform.position, Quaternion.identity) as GameObject;
-		newShip.GetComponent<Health> ().m_respawner = transform;
 		//Debug.Log ("Respawned");
 	}
 		
