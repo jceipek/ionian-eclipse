@@ -9,6 +9,12 @@ public class MineBehavior : MonoBehaviour
 	public GameObject m_visualRadius;
 	private Collider2D[] m_overlapCircleResults = new Collider2D[20];
 	private float m_spriteWidth;
+	private MineAbility m_mineAbility;
+
+	public void Init (MineAbility mineAbility)
+	{
+		m_mineAbility = mineAbility;
+	}
 
 	void OnEnable ()
 	{
@@ -44,6 +50,7 @@ public class MineBehavior : MonoBehaviour
 		}
 
 		CheckHit ();
+		m_mineAbility.DecrementMineCount ();
 		Destroy (gameObject);
 	}
 
