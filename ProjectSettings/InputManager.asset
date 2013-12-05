@@ -786,7 +786,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 2
+    axis: 3
     joyNum: 1
   - serializedVersion: 3
     m_Name: R_YAxis_2
@@ -850,7 +850,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 3
+    axis: 2
     joyNum: 1
   - serializedVersion: 3
     m_Name: R_XAxis_2
