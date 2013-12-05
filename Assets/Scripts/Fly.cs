@@ -30,13 +30,25 @@ public class Fly : MonoBehaviour
 		yield return new WaitForSeconds (seconds);
 		Destroy (gameObject);
 	}
-	
+
+	void Reflect ()
+	{
+		transform.Rotate (new Vector3 (0, 0, 180));
+		transform.position = m_previousPosition;
+	}
+
 	void FixedUpdate ()
 	{
 		int hitCount = Physics2D.LinecastNonAlloc (m_previousPosition, transform.position + transform.up * (Time.fixedDeltaTime * m_speed), m_linecastResults);
 		for (int i = 0; i < hitCount; i++) {
 			RaycastHit2D hit = m_linecastResults [i];
 			if (hit.collider) {
+				var hitMaterial = hit.collider.sharedMaterial;
+				if (hit.collider.sharedMaterial && hitMaterial.name == "Deflect") {
+					Reflect ();
+					return;
+				}
+
 				GameObject hitObject = hit.collider.gameObject;
 				BulletHit bulletHit = hitObject.GetComponent<BulletHit> ();
 				if (bulletHit) {

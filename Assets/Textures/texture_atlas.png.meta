@@ -158,5 +158,14 @@ TextureImporter:
         height: 300
       alignment: 9
       pivot: {x: .507678509, y: .160612792}
+    - name: Multi-Line
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 1816
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
