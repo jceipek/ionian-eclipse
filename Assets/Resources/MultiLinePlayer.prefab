@@ -282,7 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142a5a1c3c2dc4122996c24ffc01dae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 100
+  m_maxSpeed: 20
+  m_acceleration: 600
   m_controlAxis:
   - R_XAxis_1
   - R_YAxis_1
@@ -297,7 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142a5a1c3c2dc4122996c24ffc01dae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 100
+  m_maxSpeed: 20
+  m_acceleration: 600
   m_controlAxis:
   - L_XAxis_1
   - L_YAxis_1
