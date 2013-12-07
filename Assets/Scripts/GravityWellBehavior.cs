@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MineBehavior : MonoBehaviour
+public class GravityWellBehavior : MonoBehaviour
 {
 		public float m_force = 1000f;	
-		public float m_damage = 30f;
 		public float m_radius = 6f;
-		public float m_secondsToExplode = 2f;
+		public float m_secondsToImplode = 10f;
 		public GameObject m_visualRadius;
 		private Collider2D[] m_overlapCircleResults = new Collider2D[20];
 		private float m_spriteWidth;
-		private MineAbility m_mineAbility;
+		private MineAbility m_gravityWellAbility;
 
 		public void Init (MineAbility mineAbility)
 		{
-				m_mineAbility = mineAbility;
+				m_gravityWellAbility = mineAbility;
 		}
 
 		void OnEnable ()
@@ -24,7 +23,7 @@ public class MineBehavior : MonoBehaviour
 
 		void Start ()
 		{
-				StartCoroutine (Pulse (m_secondsToExplode));
+				StartCoroutine (Pulse (m_secondsToImplode));
 		}
 
 		IEnumerator Pulse (float seconds)
@@ -34,25 +33,17 @@ public class MineBehavior : MonoBehaviour
 				while (total > 0) {
 						yield return new WaitForSeconds (delta);
 						total -= delta;
-						m_visualRadius.transform.localScale = Vector3.one * Mathf.Sin (1 / total * 10f);
+						m_visualRadius.transform.localScale = Vector3.one * Mathf.Sin (1 / total * 100f) * m_spriteWidth * 2;
+						CheckHit ();
 				}
 
-				StartCoroutine (Explode (0.1f));
+				Explode ();
 		}
 
-		IEnumerator Explode (float seconds)
+		void Explode ()
 		{
-				float total = seconds;
-				float delta = 0.01f;
-				while (total > 0) {
-						yield return new WaitForSeconds (delta);
-						total -= delta;
-						m_visualRadius.transform.localScale = Vector3.Lerp (Vector3.one * m_radius / m_spriteWidth, Vector3.zero, total / seconds);
-				}
-
-				CheckHit ();
-				if (m_mineAbility)
-						m_mineAbility.DecrementMineCount ();
+				if (m_gravityWellAbility)
+						m_gravityWellAbility.DecrementMineCount ();
 				Destroy (gameObject);
 		}
 
@@ -64,11 +55,8 @@ public class MineBehavior : MonoBehaviour
 						if (unfortunate) {
 								KineticallySusceptible kineticallySusceptible = unfortunate.GetComponent<KineticallySusceptible> ();
 								if (kineticallySusceptible) {
-										kineticallySusceptible.GetHit ((transform.position - unfortunate.transform.position) * -m_force);
-								}
-								EnergeticallySusceptible bulletHit = unfortunate.GetComponent<EnergeticallySusceptible> ();
-								if (bulletHit) {
-										bulletHit.GetHit (m_damage);
+										var difference = transform.position - unfortunate.transform.position;
+										kineticallySusceptible.GetHit (difference.normalized * Mathf.Lerp (m_force, 0f, difference.magnitude / m_radius));
 								}
 						}
 				}

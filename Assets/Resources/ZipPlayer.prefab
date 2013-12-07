@@ -14,13 +14,14 @@ GameObject:
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11400006}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400016}
   - 114: {fileID: 11400018}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400020}
   m_Layer: 0
   m_Name: ZipPlayer
   m_TagString: Player
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93073cc4127ad4af4b6b812f3b48a5ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 90919d8605669434ab0fdf2b26f47f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400008
@@ -197,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,6 +246,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxSpeed: 20
   m_acceleration: 600
+--- !u!114 &11400020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3592350398a48c9b81f4e7d44544b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
