@@ -23,7 +23,7 @@ public class GameTimer : MonoBehaviour
 				m_timeTillWin += Time.deltaTime;
 				if (m_timeTillWin > m_totalTimeToWin) {
 						m_timeTillWin = m_totalTimeToWin;
-						// TODO: You win!
+						EndScreen.Win ();
 				}
 		}
 
@@ -39,7 +39,7 @@ public class GameTimer : MonoBehaviour
 
 		void DrawIconAtTime (Texture icon, float time)
 		{
-				GUI.DrawTexture (new Rect (Mathf.Lerp (m_points [0], m_points [1], time / m_totalTimeToWin), 
+				GUI.DrawTexture (new Rect (Mathf.Lerp (m_points [0], m_points [1], time / m_totalTimeToWin) - icon.width / 2f, 
 		                           m_topOffset + (m_timerBarTextures [1].height - icon.height) * m_visualScale / 2f,
 		                           icon.width * m_visualScale, icon.height * m_visualScale), icon);
 		}
