@@ -9,9 +9,10 @@ public class TeleporterController : MonoBehaviour
 	public string m_teleportButton;
 	public MoveBehavior m_moveBehavior;
 	public MoveBehavior m_shadowMoveBehavior;
+	public float m_teleportCooldownSeconds;
 
 	private Rigidbody2D m_rigidbody;
-
+	private bool m_canTeleport = true;
 	
 	void FixedUpdate ()
 	{
@@ -37,13 +38,26 @@ public class TeleporterController : MonoBehaviour
 		//"L_YAxis_1"
 	}
 
+	IEnumerator CoolDown ()
+	{
+		yield return new WaitForSeconds (m_teleportCooldownSeconds);
+		m_canTeleport = true;
+	}
+
 	void Teleport ()
 	{
+		if (!m_canTeleport) {
+			return;
+		}
+
+		m_canTeleport = false;
+
 		var oldPos = m_moveBehavior.transform.position;
 		var newPos = m_shadowMoveBehavior.transform.position;
-
+		
 		m_moveBehavior.transform.position = newPos;
 		m_shadowMoveBehavior.transform.position = oldPos;
+		StartCoroutine (CoolDown ());
 	}
 	
 }
