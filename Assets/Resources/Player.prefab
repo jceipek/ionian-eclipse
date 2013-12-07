@@ -167,6 +167,9 @@ MonoBehaviour:
   m_destination: {x: 0, y: 0}
   m_torqueForce: 5
   m_linearForce: 250
+  m_distanceOffset: 0
+  m_followDistance: 3
+  m_lookaheadDistance: 1
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1

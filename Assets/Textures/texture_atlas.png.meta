@@ -167,58 +167,22 @@ TextureImporter:
         height: 138
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: Timer Left Cap
+    - name: ShadowShip
       rect:
         serializedVersion: 2
-        x: 1416
-        y: 914
-        width: 94
-        height: 70
-      alignment: 5
-      pivot: {x: 1, y: .5}
-    - name: Timer Right Cap
-      rect:
-        serializedVersion: 2
-        x: 1715
-        y: 914
-        width: 98
-        height: 70
-      alignment: 4
-      pivot: {x: 0, y: .5}
-    - name: Timer Center
-      rect:
-        serializedVersion: 2
-        x: 1531
-        y: 914
-        width: 165
-        height: 70
+        x: 1764
+        y: 1367
+        width: 114
+        height: 263
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: Mothership Icon
+    - name: Shadow
       rect:
         serializedVersion: 2
-        x: 1445
-        y: 847
-        width: 57
-        height: 39
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: Encounter Icon
-      rect:
-        serializedVersion: 2
-        x: 1515
-        y: 858
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: Objective Icon
-      rect:
-        serializedVersion: 2
-        x: 1549
-        y: 845
-        width: 24
-        height: 39
+        x: 1905
+        y: 1368
+        width: 113
+        height: 263
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 
