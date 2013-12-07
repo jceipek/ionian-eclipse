@@ -371,7 +371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &298321031
 Transform:
   m_ObjectHideFlags: 0
@@ -457,6 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 1000
+  m_missionCritical: 1
 --- !u!114 &298321037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,6 +1206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 3
+  m_missionCritical: 0
 --- !u!1001 &562343771
 Prefab:
   m_ObjectHideFlags: 0
@@ -1632,6 +1634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &979194241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,6 +1768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!50 &979589950
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2111,6 +2115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &1014228974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2148,6 +2153,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b879149bafca46d6a628244bec7414a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1020241736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1020241738}
+  - 114: {fileID: 1020241737}
+  m_Layer: 0
+  m_Name: EndDecider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1020241737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020241736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f6f614ca470b24fa6ab6a457a77274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1020241738
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020241736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.63721132, y: 4.88165951, z: .00927734375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1027693974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,6 +2339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 1000
+  m_missionCritical: 0
 --- !u!114 &1116532712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2526,6 +2570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &1140675045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2677,6 +2722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!50 &1153825561
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2903,6 +2949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &1211026718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3073,6 +3120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 1000
+  m_missionCritical: 0
 --- !u!114 &1231590774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3577,6 +3625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &1406812763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3779,6 +3828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &1433970055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4366,7 +4416,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2000336431}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97b4768c3683045e4bfdb2e78272970c, type: 3}
   m_Name: 
@@ -4454,6 +4504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &2010589679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4739,6 +4790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &2089515519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4887,6 +4939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!114 &2124343845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5077,6 +5130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
 --- !u!50 &2129008425
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -5217,7 +5271,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 08725d7796f2d4c19a9cae295969e9f3, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: 08725d7796f2d4c19a9cae295969e9f3, type: 2}
+      propertyPath: m_missionCritical
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08725d7796f2d4c19a9cae295969e9f3, type: 2}
