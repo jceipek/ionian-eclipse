@@ -9,18 +9,20 @@ public class Fly : MonoBehaviour
 	private Vector3 m_previousPosition;
 	private RaycastHit2D[] m_linecastResults = new RaycastHit2D[1]; // For efficient caching
 	private SpriteRenderer m_spriteRenderer;
+	private GameObject m_ship;
 
 	void OnEnable ()
 	{
 		m_spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
 
-	public void Init (Color color, float speed = 10f, float force = 1000f, float damage = 1f)
+	public void Init (Color color, float speed = 10f, float force = 1000f, float damage = 1f, GameObject ship = null)
 	{
 		m_spriteRenderer.color = color;
 		m_speed = speed;
 		m_force = force;
 		m_damage = damage;
+		m_ship = ship;
 		StartCoroutine (Die (10f));
 		m_previousPosition = transform.position;
 	}
@@ -48,8 +50,10 @@ public class Fly : MonoBehaviour
 					Reflect ();
 					return;
 				}
-
 				GameObject hitObject = hit.collider.gameObject;
+				if (m_ship && hitObject == m_ship) {
+					continue;
+				}
 				BulletHit bulletHit = hitObject.GetComponent<BulletHit> ();
 				if (bulletHit) {
 					bulletHit.GetHit (m_damage, transform.up * m_force);
