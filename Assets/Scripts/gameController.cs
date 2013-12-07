@@ -32,6 +32,6 @@ public class gameController : MonoBehaviour
 
 		m_rigidbody.AddForce ((new Vector3 (horizontal, -vertical, 0)) * m_moveSpeed);
 
-		m_rigidbody.AddTorque (GetTorque (transform.up, (new Vector3 (lookVertical, -lookHorizontal)).normalized));
+		m_rigidbody.AddTorque (GetTorque (transform.up, (new Vector3 (lookHorizontal, -lookVertical)).normalized));
 	}
 }
