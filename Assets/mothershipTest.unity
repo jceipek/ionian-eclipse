@@ -371,7 +371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &298321031
 Transform:
   m_ObjectHideFlags: 0
@@ -495,7 +495,7 @@ Rigidbody2D:
     type: 2}
   m_PrefabInternal: {fileID: 2140648164}
   m_GameObject: {fileID: 298321030}
-  m_Mass: 10
+  m_Mass: 1000
   m_LinearDrag: 3
   m_AngularDrag: 25
   m_GravityScale: 1
@@ -4326,7 +4326,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2000336431}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97b4768c3683045e4bfdb2e78272970c, type: 3}
   m_Name: 
@@ -5116,11 +5116,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5000000, guid: 08725d7796f2d4c19a9cae295969e9f3, type: 2}
       propertyPath: m_Mass
-      value: 10
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 08725d7796f2d4c19a9cae295969e9f3, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08725d7796f2d4c19a9cae295969e9f3, type: 2}
