@@ -22,6 +22,7 @@ GameObject:
   - 114: {fileID: 11400018}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400020}
+  - 114: {fileID: 11400022}
   m_Layer: 0
   m_Name: ZipPlayer
   m_TagString: Player
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.410692781, y: -6.10992193, z: .00927734375}
+  m_LocalPosition: {x: -30.056385, y: -7.82770491, z: .00927734375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_initialHealth: 100
   m_missionCritical: 0
+  m_destroyParentOnDeath: 1
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,6 +257,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d3592350398a48c9b81f4e7d44544b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61544addf9a764d2095ca4f3987dac1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21200000

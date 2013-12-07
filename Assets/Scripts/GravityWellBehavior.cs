@@ -4,16 +4,17 @@ using System.Collections;
 public class GravityWellBehavior : MonoBehaviour
 {
 		public float m_force = 1000f;	
-		public float m_radius = 6f;
+		public float m_initialRadius = 6f;
 		public float m_secondsToImplode = 10f;
 		public GameObject m_visualRadius;
 		private Collider2D[] m_overlapCircleResults = new Collider2D[20];
 		private float m_spriteWidth;
-		private MineAbility m_gravityWellAbility;
+		private GravityWellAbility m_gravityWellAbility;
+		private float m_radius;
 
-		public void Init (MineAbility mineAbility)
+		public void Init (GravityWellAbility gravityWellAbility)
 		{
-				m_gravityWellAbility = mineAbility;
+				m_gravityWellAbility = gravityWellAbility;
 		}
 
 		void OnEnable ()
@@ -23,7 +24,9 @@ public class GravityWellBehavior : MonoBehaviour
 
 		void Start ()
 		{
+				m_radius = m_initialRadius;
 				StartCoroutine (Pulse (m_secondsToImplode));
+				m_visualRadius.transform.localScale = Vector3.one * m_initialRadius / m_spriteWidth;
 		}
 
 		IEnumerator Pulse (float seconds)
@@ -33,7 +36,8 @@ public class GravityWellBehavior : MonoBehaviour
 				while (total > 0) {
 						yield return new WaitForSeconds (delta);
 						total -= delta;
-						m_visualRadius.transform.localScale = Vector3.one * Mathf.Sin (1 / total * 100f) * m_spriteWidth * 2;
+						m_radius = Mathf.Lerp (0, m_initialRadius / m_spriteWidth, total / seconds);
+						m_visualRadius.transform.localScale = m_radius * Vector3.one;//Vector3.one * Mathf.Sin (1 / total * 100f) * m_initialRadius / m_spriteWidth;
 						CheckHit ();
 				}
 
@@ -42,14 +46,12 @@ public class GravityWellBehavior : MonoBehaviour
 
 		void Explode ()
 		{
-				if (m_gravityWellAbility)
-						m_gravityWellAbility.DecrementMineCount ();
 				Destroy (gameObject);
 		}
 
 		void CheckHit ()
 		{
-				int hitCount = Physics2D.OverlapCircleNonAlloc ((Vector2)transform.position, m_radius, m_overlapCircleResults);
+				int hitCount = Physics2D.OverlapCircleNonAlloc ((Vector2)transform.position, m_initialRadius, m_overlapCircleResults);
 				for (var i = 0; i < hitCount; i++) {
 						Collider2D unfortunate = m_overlapCircleResults [i];
 						if (unfortunate) {

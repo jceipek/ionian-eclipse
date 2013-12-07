@@ -61,7 +61,7 @@ public class Fly : MonoBehaviour
 								}
 						}
 				}
-
+				
 				transform.position += transform.up * Time.fixedDeltaTime * m_speed;
 				m_previousPosition = transform.position;
 		}

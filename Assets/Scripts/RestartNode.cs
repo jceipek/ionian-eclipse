@@ -3,6 +3,7 @@ using System.Collections;
 
 public class RestartNode : MonoBehaviour
 {
+		public string mainLevel = "Main";
 		private bool m_restartable;
 		void Start ()
 		{
@@ -11,7 +12,7 @@ public class RestartNode : MonoBehaviour
 		}
 		void Restart ()
 		{
-				Application.LoadLevel ("mothershipTest");
+				Application.LoadLevel (mainLevel);
 		}
 		IEnumerator AllowRestart ()
 		{
