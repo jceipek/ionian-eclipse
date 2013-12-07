@@ -5,6 +5,8 @@ public class Health : MonoBehaviour
 {
 	public float m_initialHealth = 100f;
 	public bool m_missionCritical = false;
+	public bool m_destroyParentOnDeath = true;
+
 	private float m_health;
 	private bool m_isAlive = true;
 
@@ -49,7 +51,7 @@ public class Health : MonoBehaviour
 		if (m_missionCritical) {
 			EndScreen.Lose ();
 		}
-		if (transform.parent) {
+		if (m_destroyParentOnDeath && transform.parent) {
 			Destroy (transform.parent.gameObject);
 		} else {
 			Destroy (gameObject);

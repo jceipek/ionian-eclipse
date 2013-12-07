@@ -317,7 +317,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.49825239, y: 16.4288311, z: .00170898438}
+  m_LocalPosition: {x: -21.934761, y: 16.4288311, z: .00170898438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400012}
@@ -632,6 +632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
+  m_destroyParentOnDeath: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -655,6 +657,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 1000
+  m_missionCritical: 0
+  m_destroyParentOnDeath: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -754,6 +758,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
+  m_destroyParentOnDeath: 0
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -777,6 +783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
+  m_destroyParentOnDeath: 0
 --- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -800,6 +808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialHealth: 100
+  m_missionCritical: 0
+  m_destroyParentOnDeath: 0
 --- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1
