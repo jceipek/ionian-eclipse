@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class TeleporterController : MonoBehaviour
 {
 	public string[] m_controlAxis = new string[2];
@@ -11,9 +12,14 @@ public class TeleporterController : MonoBehaviour
 	public MoveBehavior m_shadowMoveBehavior;
 	public float m_teleportCooldownSeconds;
 
-	private Rigidbody2D m_rigidbody;
+	private ShadowAttackAbility m_shadowAttackAbility;
 	private bool m_canTeleport = true;
-	
+
+	void OnEnable ()
+	{
+		m_shadowAttackAbility = GetComponent<ShadowAttackAbility> ();
+	}
+
 	void FixedUpdate ()
 	{
 		float horizontal = Input.GetAxis (m_controlAxis [0]);
@@ -31,11 +37,6 @@ public class TeleporterController : MonoBehaviour
 
 		m_moveBehavior.Move (horizontal, -vertical);
 		m_shadowMoveBehavior.Move (shadowHorizontal, -shadowVertical);
-		
-
-		//m_rigidbody.AddTorque (GetTorque (transform.up, (new Vector3 (lookVertical, -lookHorizontal)).normalized));
-
-		//"L_YAxis_1"
 	}
 
 	IEnumerator CoolDown ()
@@ -57,6 +58,11 @@ public class TeleporterController : MonoBehaviour
 		
 		m_moveBehavior.transform.position = newPos;
 		m_shadowMoveBehavior.transform.position = oldPos;
+
+		if (m_shadowAttackAbility) {
+			m_shadowAttackAbility.Attack ();
+		}
+
 		StartCoroutine (CoolDown ());
 	}
 	
