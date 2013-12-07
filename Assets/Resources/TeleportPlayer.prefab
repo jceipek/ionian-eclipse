@@ -346,6 +346,8 @@ MonoBehaviour:
   - {fileID: 400002}
   m_damage: 30
   m_force: 0
+  m_lineFlashDuration: .25999999
+  m_lineFlashWidth: .200000003
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -371,8 +373,8 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: 1
-    endWidth: 1
+    startWidth: 0
+    endWidth: 0
     m_StartColor:
       serializedVersion: 2
       rgba: 4294967295

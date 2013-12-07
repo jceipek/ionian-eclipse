@@ -359,6 +359,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 12000000, guid: 6694b52a2a04e4196845624b4541bce3, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 56aad74260bdf4889a89c974e2d121e0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6694b52a2a04e4196845624b4541bce3, type: 2}
   m_RootGameObject: {fileID: 1140675041}
@@ -2448,6 +2452,8 @@ MonoBehaviour:
   - {fileID: 1619916871}
   m_damage: 30
   m_force: 0
+  m_lineFlashDuration: .25999999
+  m_lineFlashWidth: .200000003
 --- !u!4 &1140675050
 Transform:
   m_ObjectHideFlags: 0
@@ -2489,7 +2495,7 @@ LineRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 56aad74260bdf4889a89c974e2d121e0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2502,8 +2508,8 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: 1
-    endWidth: 1
+    startWidth: 0
+    endWidth: 0
     m_StartColor:
       serializedVersion: 2
       rgba: 4294967295
