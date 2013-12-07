@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(MoveBehavior))]
+
 public class gameController : MonoBehaviour
 {
-	public float m_moveSpeed;
 	public float m_torqueForce;
 	private Rigidbody2D m_rigidbody;
+	private MoveBehavior m_moveBehavior;
 
 	// Use this for initialization
 	void OnEnable ()
 	{
 		m_rigidbody = GetComponent<Rigidbody2D> ();
+		m_moveBehavior = GetComponent<MoveBehavior> ();
+
 	}
 
 	private float GetTorque (Vector3 fwd, Vector3 targetDir)
@@ -30,8 +34,8 @@ public class gameController : MonoBehaviour
 		float lookHorizontal = Input.GetAxis ("R_XAxis_1");
 		float lookVertical = Input.GetAxis ("R_YAxis_1");
 
-		m_rigidbody.AddForce ((new Vector3 (horizontal, -vertical, 0)) * m_moveSpeed);
+		m_moveBehavior.Move (horizontal, -vertical);
 
-		m_rigidbody.AddTorque (GetTorque (transform.up, (new Vector3 (lookVertical, -lookHorizontal)).normalized));
+		m_rigidbody.AddTorque (GetTorque (transform.up, (new Vector3 (lookHorizontal, lookVertical)).normalized));
 	}
 }

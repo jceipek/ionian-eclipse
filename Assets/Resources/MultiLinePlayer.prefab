@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400008}
+  - 114: {fileID: 11400026}
   m_Layer: 0
   m_Name: Node
   m_TagString: Player
@@ -91,6 +92,7 @@ GameObject:
   - 114: {fileID: 11400016}
   - 58: {fileID: 5800002}
   - 114: {fileID: 11400010}
+  - 114: {fileID: 11400028}
   m_Layer: 0
   m_Name: Node
   m_TagString: Player
@@ -282,7 +284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142a5a1c3c2dc4122996c24ffc01dae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 100
   m_controlAxis:
   - R_XAxis_1
   - R_YAxis_1
@@ -297,7 +298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142a5a1c3c2dc4122996c24ffc01dae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 100
   m_controlAxis:
   - L_XAxis_1
   - L_YAxis_1
@@ -388,6 +388,32 @@ MonoBehaviour:
   m_points:
   - {fileID: 400008}
   - {fileID: 400000}
+--- !u!114 &11400026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33ae3966b07743b28baa17b1afc5708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxSpeed: 20
+  m_acceleration: 600
+--- !u!114 &11400028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33ae3966b07743b28baa17b1afc5708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxSpeed: 20
+  m_acceleration: 600
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1
