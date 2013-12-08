@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Health : MonoBehaviour
 {
-	public float m_initialHealth = 100f;
+	public float m_initialHealth;
 	public bool m_missionCritical = false;
 	public bool m_destroyParentOnDeath = true;
 
@@ -17,8 +17,14 @@ public class Health : MonoBehaviour
 	void OnEnable ()
 	{
 		m_shardPrefab = Resources.Load ("Shard") as GameObject;
-		m_health = m_initialHealth;
 		m_respawnAbility = GetComponent<RespawnAbility> ();
+		Init (m_initialHealth);
+	}
+
+	public void Init (float health)
+	{
+		m_initialHealth = health;
+		m_health = health;
 	}
 
 	public float ChangeHealthBy (float delta)

@@ -4,15 +4,31 @@ using System.Collections;
 public class Spawner_VariableDifficulty : MonoBehaviour
 {
 	public GameObject m_enemyPrefab;
-	public int m_difficulty_level = 1;
-	//TODO: Change to be dependant on time since game has started
-	public float m_spawningRate; 
+	public int m_difficultyLevel = 1;
+	public float m_spawningFrequency = 20; 
 	public int m_enemyCountPerSpawn = 1;
-	public float m_maxShootingFrequency = 0.1f;
 
+	public float m_maxFireFrequency = 0.1f;
+	public float m_minFireFrequency = 1f;
+
+	public float m_maxDamage = 10f;
+	public float m_minDamage = 1f;
+
+	public float m_maxSpeed = 50f;
+	public float m_minSpeed = 5f;
+
+	public float m_maxHealth = 200f;
+	public float m_minHealth = 3f;
+
+	public float m_maxBulletSize = 4f;
+	public float m_maxEnemySize = 4f;
+
+	private float m_gameLength;
+	
 	void OnEnable ()
 	{
 		m_enemyPrefab = Resources.Load ("Enemy") as GameObject;
+		m_gameLength = GameTimer.s_gameLength;
 	}
 	
 	void Start ()
@@ -23,32 +39,67 @@ public class Spawner_VariableDifficulty : MonoBehaviour
 	IEnumerator Spawn ()
 	{
 		while (true) {
-			yield return (new WaitForSeconds (m_spawningRate));
+			float time = GameTimer.getTime ();
+			float damage = damageFromTime (time);
+			float health = healthFromTime (time);
+			float speed = speedFromTime (time);
+			float fireFrequency = fireFrequencyFromTime (time);
+
 			for (int i = 0; i < m_enemyCountPerSpawn; i++) {
-				GameObject enemy = Instantiate (m_enemyPrefab, transform.position, Quaternion.identity) as GameObject;
-				ScheduledFire scheduledFire = enemy.GetComponent<ScheduledFire> ();
-				Health health = enemy.GetComponent<Health> ();
-				FireAbility fireAbility = enemy.GetComponent<FireAbility> ();
-				if (m_difficulty_level % 5 == 0) {
-					if (scheduledFire.m_fireFrequencySeconds < m_maxShootingFrequency) {
-						scheduledFire.m_fireFrequencySeconds = (3 / m_difficulty_level);
-					} else {
-						scheduledFire.m_fireFrequencySeconds = m_maxShootingFrequency;
-					}
-				}
-				//Change damage and size of bullets.
-				/*if (m_difficulty_level % 8 == 0) {
-										fireAbility.m_gunPos
-								}*/
-				if (m_difficulty_level % 2 == 0) {
-					health.m_initialHealth *= 2f;	
-					//Also change enemy color ?	
-				}
-				//After 18th enemy enemies become fast
-				//if(m_difficulty_level> 19){
+				CreateEnemy (damage, health, speed, fireFrequency);
 			}
-			m_difficulty_level ++;
+			m_difficultyLevel ++;
+			yield return (new WaitForSeconds (m_spawningFrequency));
 		}
+	}
+
+	private void CreateEnemy (float damage, float health, float speed, float fireFrequency, float size = 0f, float bulletSize = 0f)
+	{
+		GameObject enemy = Instantiate (m_enemyPrefab, transform.position, Quaternion.identity) as GameObject;
+
+		ScheduledFire scheduledFire = enemy.GetComponent<ScheduledFire> ();
+		MoveToDest movement = enemy.GetComponent<MoveToDest> ();
+		Health healthComponent = enemy.GetComponent<Health> ();
+		FireAbility fireAbility = enemy.GetComponent<FireAbility> ();
+
+		fireAbility.m_bulletDamage = damage;
+		scheduledFire.m_fireFrequencySeconds = fireFrequency;
+		movement.m_linearForce = speed;
+		healthComponent.Init (health);
+	}
+
+
+
+	private float fireFrequencyFromTime (float time)
+	{
+		return Mathf.Lerp (m_minFireFrequency, m_maxFireFrequency, (time / m_gameLength));
+	}
+
+	private float healthFromTime (float time)
+	{
+		return Mathf.Lerp (m_minHealth, m_maxHealth, (time / m_gameLength));
+	}
+
+	private float damageFromTime (float time)
+	{
+		return Mathf.Lerp (m_minDamage, m_maxDamage, (time / m_gameLength));
+	}
+
+	private float speedFromTime (float time)
+	{
+		return Mathf.Lerp (m_minSpeed, m_maxSpeed, (time / m_gameLength));
+	}
+
+	private float enemySizeFromHealth (float health)
+	{
+		float ratio = Mathf.Sqrt (Mathf.InverseLerp (m_minHealth, m_maxHealth, health));
+		return Mathf.Lerp (1f, m_maxBulletSize, ratio);
+	}
+
+	private float bulletSizeFromDamage (float damage)
+	{
+		float ratio = Mathf.Sqrt (Mathf.InverseLerp (m_minDamage, m_maxDamage, damage));
+		return Mathf.Lerp (1f, m_maxBulletSize, ratio);
 	}
 	
 	void OnDrawGizmos ()
