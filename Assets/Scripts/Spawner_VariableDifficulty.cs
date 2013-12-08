@@ -28,7 +28,7 @@ public class Spawner_VariableDifficulty : MonoBehaviour
 	void OnEnable ()
 	{
 		m_enemyPrefab = Resources.Load ("Enemy") as GameObject;
-		m_gameLength = GameTimer.s_gameLength;
+		m_gameLength = GameTimer.g.m_gameLength;
 	}
 	
 	void Start ()
@@ -39,7 +39,7 @@ public class Spawner_VariableDifficulty : MonoBehaviour
 	IEnumerator Spawn ()
 	{
 		while (true) {
-			float time = GameTimer.getTime ();
+			float time = GameTimer.g.getTime ();
 			float damage = damageFromTime (time);
 			float health = healthFromTime (time);
 			float speed = speedFromTime (time);

@@ -93,6 +93,7 @@ GameObject:
   - 233: {fileID: 23300000}
   - 114: {fileID: 11400044}
   - 114: {fileID: 11400008}
+  - 114: {fileID: 11400048}
   m_Layer: 0
   m_Name: Segment
   m_TagString: Enemy
@@ -119,6 +120,7 @@ GameObject:
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400046}
   - 114: {fileID: 11400034}
+  - 114: {fileID: 11400052}
   m_Layer: 0
   m_Name: EnemyMaster
   m_TagString: Enemy
@@ -141,6 +143,7 @@ GameObject:
   - 233: {fileID: 23300002}
   - 114: {fileID: 11400040}
   - 114: {fileID: 11400022}
+  - 114: {fileID: 11400054}
   m_Layer: 0
   m_Name: Segment
   m_TagString: Enemy
@@ -194,6 +197,7 @@ GameObject:
   - 233: {fileID: 23300004}
   - 114: {fileID: 11400038}
   - 114: {fileID: 11400026}
+  - 114: {fileID: 11400042}
   m_Layer: 0
   m_Name: Segment
   m_TagString: Enemy
@@ -216,6 +220,7 @@ GameObject:
   - 114: {fileID: 11400030}
   - 114: {fileID: 11400036}
   - 114: {fileID: 11400032}
+  - 114: {fileID: 11400050}
   m_Layer: 0
   m_Name: Segment
   m_TagString: Enemy
@@ -449,7 +454,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Poly:
     m_Paths:
     - - {x: .00296616554, y: .172984838}
@@ -501,7 +506,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 100014}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Poly:
     m_Paths:
     - - {x: .00296616554, y: .172984838}
@@ -531,7 +536,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 100020}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Poly:
     m_Paths:
     - - {x: .00296616554, y: .172984838}
@@ -561,7 +566,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 100022}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Poly:
     m_Paths:
     - - {x: .00296616554, y: .172984838}
@@ -699,6 +704,7 @@ MonoBehaviour:
   m_bulletForce: 10
   m_bulletDamage: 1
   m_cooldownSeconds: .100000001
+  m_turretPos: {fileID: 0}
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -803,7 +809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_initialHealth: 100
   m_missionCritical: 0
-  m_destroyParentOnDeath: 1
+  m_destroyParentOnDeath: 0
 --- !u!114 &11400032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -859,6 +865,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90919d8605669434ab0fdf2b26f47f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61544addf9a764d2095ca4f3987dac1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11400044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -879,6 +896,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d3592350398a48c9b81f4e7d44544b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61544addf9a764d2095ca4f3987dac1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61544addf9a764d2095ca4f3987dac1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61544addf9a764d2095ca4f3987dac1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61544addf9a764d2095ca4f3987dac1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21200000
@@ -1034,7 +1095,7 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: -30
     m_UpperAngle: 30
@@ -1072,7 +1133,7 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: -30
     m_UpperAngle: 30
@@ -1091,7 +1152,7 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: -30
     m_UpperAngle: 30

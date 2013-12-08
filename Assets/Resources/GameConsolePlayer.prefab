@@ -249,7 +249,7 @@ MonoBehaviour:
   m_bulletColor: {r: 1, g: 1, b: 1, a: 1}
   m_bulletSpeed: 30
   m_bulletForce: 10
-  m_bulletDamage: 1
+  m_bulletDamage: 10
   m_cooldownSeconds: .100000001
   m_turretPos: {fileID: 400002}
 --- !u!114 &11400008

@@ -210,10 +210,8 @@ MonoBehaviour:
   m_topOffset: 16.5
   m_visualScale: .600000024
   m_segmentCount: 7
-  m_totalTimeToWin: 180
-  m_timeTillWin: 0
+  m_gameLength: 300
   m_encounterTimes:
-  - 10
   - 5
   m_timerBarTextures:
   - {fileID: 2800000, guid: b6b33a3302f2144e693b186d49e5f1ac, type: 3}

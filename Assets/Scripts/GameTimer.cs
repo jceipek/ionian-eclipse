@@ -8,8 +8,7 @@ public class GameTimer : MonoBehaviour
 	public float m_visualScale = 0.8f;
 	public int m_segmentCount = 5;
 	public float m_gameLength;
-	public static float s_gameLength;
-	private static float m_currentTime = 0f;
+	private float m_currentTime = 0f;
 	public float[] m_encounterTimes;
 	public Texture[] m_timerBarTextures = new Texture[3];
 	public Texture m_LocationIconTexture;
@@ -19,17 +18,31 @@ public class GameTimer : MonoBehaviour
 	private float[] m_points = new float[2];
 	private float m_barHeight;
 
-	void OnEnable ()
+	public static GameTimer g;
+
+	// so we can make a static instance and refer
+	// to the game timer time as a global
+	void Awake ()
 	{
-		s_gameLength = m_gameLength;
+		Debug.Log ("awake");
+		if (g != null) {
+			DestroyImmediate (gameObject);
+			return;
+		}
+		g = this;
 	}
 
 	void Update ()
 	{
 		m_currentTime += Time.deltaTime;
+		if (m_currentTime > m_gameLength) {
+			Debug.Log ("game length " + m_gameLength);
+			Debug.Log ("win" + m_currentTime);
+			EndScreen.Win ();
+		}
 	}
 
-	public static float getTime ()
+	public float getTime ()
 	{
 		return m_currentTime;
 	}
