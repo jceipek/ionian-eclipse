@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+[RequireComponent (typeof(RadialIndicator))]
 public class TeleporterController : MonoBehaviour
 {
 		public string[] m_controlAxis = new string[2];
@@ -14,6 +14,7 @@ public class TeleporterController : MonoBehaviour
 		public float m_carryRadius = 5f;
 		public float m_unisonTime = 0.1f;
 
+		private RadialIndicator m_visualCooldownIndicator;
 		private ShadowAttackAbility m_shadowAttackAbility;
 		private bool m_canTeleport = true;
 		private Collider2D[] m_overlapCircleResults = new Collider2D[20];
@@ -21,6 +22,12 @@ public class TeleporterController : MonoBehaviour
 		void OnEnable ()
 		{
 				m_shadowAttackAbility = GetComponent<ShadowAttackAbility> ();
+				m_visualCooldownIndicator = GetComponent<RadialIndicator> ();
+		}
+
+		void Start ()
+		{
+				UpdateCooldownIndicator (0f);
 		}
 
 		void FixedUpdate ()
@@ -94,8 +101,19 @@ public class TeleporterController : MonoBehaviour
 
 		IEnumerator CoolDown ()
 		{
-				yield return new WaitForSeconds (m_teleportCooldownSeconds);
+				float total = m_teleportCooldownSeconds;
+				float delta = Time.deltaTime;
+				while (total > 0) {
+						yield return new WaitForSeconds (delta);
+						total -= delta;
+						UpdateCooldownIndicator (total / m_teleportCooldownSeconds);
+				}
 				m_canTeleport = true;
+		}
+
+		void UpdateCooldownIndicator (float fraction)
+		{
+				m_visualCooldownIndicator.UpdateCooldownIndicator (0, fraction);
 		}
 
 		void TeleportSurroundingsTo (Vector2 origin, Vector2 destination)
