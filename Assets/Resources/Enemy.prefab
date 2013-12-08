@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
-  m_LocalPosition: {x: -4.57000017, y: 3.51189137, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0265fda623e24e1a86f0978de4e3130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_closestPlayer: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,6 +193,8 @@ MonoBehaviour:
   m_bulletForce: 10
   m_bulletDamage: 1
   m_cooldownSeconds: .100000001
+  m_turretPos: {fileID: 0}
+  m_bulletSize: 1
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

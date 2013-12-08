@@ -24,7 +24,6 @@ public class GameTimer : MonoBehaviour
 	// to the game timer time as a global
 	void Awake ()
 	{
-		Debug.Log ("awake");
 		if (g != null) {
 			DestroyImmediate (gameObject);
 			return;
@@ -36,8 +35,6 @@ public class GameTimer : MonoBehaviour
 	{
 		m_currentTime += Time.deltaTime;
 		if (m_currentTime > m_gameLength) {
-			Debug.Log ("game length " + m_gameLength);
-			Debug.Log ("win" + m_currentTime);
 			EndScreen.Win ();
 		}
 	}

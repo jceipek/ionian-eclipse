@@ -8,7 +8,7 @@ public class SwarmAIController : MonoBehaviour
 	//public float m_distanceOffset = 4f;
 	//public float m_defaultDistanceOffset = 4f;
 	private MoveToDest m_moveToDest;
-	private Transform m_closestPlayer;
+	public Transform m_closestPlayer;
 	
 	private Collider2D[] m_overlapCircleResults = new Collider2D[10];
 

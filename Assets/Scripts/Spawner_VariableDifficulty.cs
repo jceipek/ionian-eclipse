@@ -44,7 +44,6 @@ public class Spawner_VariableDifficulty : MonoBehaviour
 			float health = healthFromTime (time);
 			float speed = speedFromTime (time);
 			float fireFrequency = fireFrequencyFromTime (time);
-			Debug.Log ("spawn " + time);
 
 			for (int i = 0; i < m_enemyCountPerSpawn; i++) {
 				CreateEnemy (damage, health, speed, fireFrequency);
