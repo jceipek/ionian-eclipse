@@ -167,5 +167,23 @@ TextureImporter:
         height: 138
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: ShadowShip
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 1367
+        width: 114
+        height: 263
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Shadow
+      rect:
+        serializedVersion: 2
+        x: 1905
+        y: 1368
+        width: 113
+        height: 263
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 

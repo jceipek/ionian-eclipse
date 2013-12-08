@@ -3,24 +3,27 @@ using System.Collections;
 
 public class Fly : MonoBehaviour
 {
+
 	private float m_speed = 10f;
 	private float m_force = 1000f;
 	private float m_damage = 1f;
 	private Vector3 m_previousPosition;
 	private RaycastHit2D[] m_linecastResults = new RaycastHit2D[1]; // For efficient caching
 	private SpriteRenderer m_spriteRenderer;
+	private GameObject m_ship;
 
 	void OnEnable ()
 	{
 		m_spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
-
-	public void Init (Color color, float speed = 10f, float force = 1000f, float damage = 1f)
+	
+	public void Init (Color color, float speed = 10f, float force = 1000f, float damage = 1f, GameObject ship = null)
 	{
 		m_spriteRenderer.color = color;
 		m_speed = speed;
 		m_force = force;
 		m_damage = damage;
+		m_ship = ship;
 		StartCoroutine (Die (10f));
 		m_previousPosition = transform.position;
 	}
@@ -37,6 +40,7 @@ public class Fly : MonoBehaviour
 		transform.position = m_previousPosition;
 	}
 
+
 	void FixedUpdate ()
 	{
 		int hitCount = Physics2D.LinecastNonAlloc (m_previousPosition, transform.position + transform.up * (Time.fixedDeltaTime * m_speed), m_linecastResults);
@@ -48,16 +52,23 @@ public class Fly : MonoBehaviour
 					Reflect ();
 					return;
 				}
-
 				GameObject hitObject = hit.collider.gameObject;
-				BulletHit bulletHit = hitObject.GetComponent<BulletHit> ();
-				if (bulletHit) {
-					bulletHit.GetHit (m_damage, transform.up * m_force);
+
+				if (m_ship && hitObject == m_ship) {
+					continue;
+				}
+				KineticallySusceptible kineticallySusceptible = hitObject.GetComponent<KineticallySusceptible> ();
+				EnergeticallySusceptible energeticallySusceptible = hitObject.GetComponent<EnergeticallySusceptible> ();
+				if (kineticallySusceptible) {
+					kineticallySusceptible.GetHit (transform.up * m_force);
+				}
+				if (energeticallySusceptible) {
+					energeticallySusceptible.GetHit (m_damage);
 					Destroy (gameObject);
 				}
+
 			}
 		}
-
 		transform.position += transform.up * Time.fixedDeltaTime * m_speed;
 		m_previousPosition = transform.position;
 	}

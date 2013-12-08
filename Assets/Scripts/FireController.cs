@@ -4,9 +4,7 @@ using System.Collections;
 [RequireComponent (typeof(FireAbility))]
 public class FireController : MonoBehaviour
 {
-
-	public string m_fireButton;
-	public bool m_fireButtonIsAxis;
+	public string[] shootAxis = new string[2];
 	private FireAbility m_fireAbility;
 
 
@@ -18,10 +16,11 @@ public class FireController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		bool fireButton = !m_fireButtonIsAxis && Input.GetButtonDown (m_fireButton);
-		bool fireAxis = m_fireButtonIsAxis && (Input.GetAxis (m_fireButton) > 0.1f);
-		if (fireButton || fireAxis) {
-			m_fireAbility.Fire ();
+		float horizontal = Input.GetAxis (shootAxis [0]);
+		float vertical = Input.GetAxis (shootAxis [1]);
+		var direction = new Vector3 (horizontal, vertical, 0);
+		if (direction.magnitude > 0.1f) {
+			m_fireAbility.Fire (direction: direction.normalized);
 		}
 	}
 }
