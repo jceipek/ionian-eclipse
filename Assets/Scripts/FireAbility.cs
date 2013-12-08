@@ -10,6 +10,8 @@ public class FireAbility : MonoBehaviour
 	public float m_bulletDamage = 1f;
 	public float m_cooldownSeconds = 0.1f;
 	public Transform m_turretPos;
+	public float m_bulletSize = 1f;
+
 	private bool m_canShoot = true;
 	private GameObject m_bullet;
 		
@@ -40,7 +42,8 @@ public class FireAbility : MonoBehaviour
 			                                  speed: m_bulletSpeed,
 			                                  force: m_bulletForce,
 			                                  damage: m_bulletDamage,
-			                                  ship: gameObject);
+			                                  ship: gameObject,
+			                                  size: m_bulletSize);
 		}
 
 		m_canShoot = false;

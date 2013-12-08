@@ -4,7 +4,7 @@ using System.Collections;
 public class Spawner_VariableDifficulty : MonoBehaviour
 {
 	public GameObject m_enemyPrefab;
-	public int m_difficultyLevel = 1;
+	private int m_difficultyLevel = 1;
 	public float m_spawningFrequency = 20; 
 	public int m_enemyCountPerSpawn = 1;
 
@@ -24,15 +24,15 @@ public class Spawner_VariableDifficulty : MonoBehaviour
 	public float m_maxEnemySize = 4f;
 
 	private float m_gameLength;
-	
+
 	void OnEnable ()
 	{
 		m_enemyPrefab = Resources.Load ("Enemy") as GameObject;
-		m_gameLength = GameTimer.g.m_gameLength;
 	}
 	
 	void Start ()
 	{
+		m_gameLength = GameTimer.g.m_gameLength;
 		StartCoroutine (Spawn ());	
 	}
 	
@@ -44,6 +44,7 @@ public class Spawner_VariableDifficulty : MonoBehaviour
 			float health = healthFromTime (time);
 			float speed = speedFromTime (time);
 			float fireFrequency = fireFrequencyFromTime (time);
+			Debug.Log ("spawn " + time);
 
 			for (int i = 0; i < m_enemyCountPerSpawn; i++) {
 				CreateEnemy (damage, health, speed, fireFrequency);
@@ -62,6 +63,15 @@ public class Spawner_VariableDifficulty : MonoBehaviour
 		Health healthComponent = enemy.GetComponent<Health> ();
 		FireAbility fireAbility = enemy.GetComponent<FireAbility> ();
 
+		if (size == 0f) {
+			size = enemySizeFromHealth (health);
+		}
+		if (bulletSize == 0f) {
+			bulletSize = bulletSizeFromDamage (damage);
+		}
+
+		enemy.transform.localScale = size * Vector3.one;
+		fireAbility.m_bulletSize = bulletSize;
 		fireAbility.m_bulletDamage = damage;
 		scheduledFire.m_fireFrequencySeconds = fireFrequency;
 		movement.m_linearForce = speed;
@@ -92,13 +102,13 @@ public class Spawner_VariableDifficulty : MonoBehaviour
 
 	private float enemySizeFromHealth (float health)
 	{
-		float ratio = Mathf.Sqrt (Mathf.InverseLerp (m_minHealth, m_maxHealth, health));
+		float ratio = Mathf.InverseLerp (m_minHealth, m_maxHealth, health);
 		return Mathf.Lerp (1f, m_maxBulletSize, ratio);
 	}
 
 	private float bulletSizeFromDamage (float damage)
 	{
-		float ratio = Mathf.Sqrt (Mathf.InverseLerp (m_minDamage, m_maxDamage, damage));
+		float ratio = Mathf.InverseLerp (m_minDamage, m_maxDamage, damage);
 		return Mathf.Lerp (1f, m_maxBulletSize, ratio);
 	}
 	

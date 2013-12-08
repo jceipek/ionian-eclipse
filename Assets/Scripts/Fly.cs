@@ -17,8 +17,9 @@ public class Fly : MonoBehaviour
 		m_spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
 	
-	public void Init (Color color, float speed = 10f, float force = 1000f, float damage = 1f, GameObject ship = null)
+	public void Init (Color color, float speed = 10f, float force = 1000f, float damage = 1f, GameObject ship = null, float size = 1f)
 	{
+		transform.localScale = Vector3.one * size;
 		m_spriteRenderer.color = color;
 		m_speed = speed;
 		m_force = force;
@@ -43,7 +44,7 @@ public class Fly : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		int hitCount = Physics2D.LinecastNonAlloc (m_previousPosition, transform.position + transform.up * (Time.fixedDeltaTime * m_speed), m_linecastResults);
+		int hitCount = Physics2D.LinecastNonAlloc (m_previousPosition, transform.position + transform.up * (Time.fixedDeltaTime * m_speed) * transform.localScale.y, m_linecastResults);
 		for (int i = 0; i < hitCount; i++) {
 			RaycastHit2D hit = m_linecastResults [i];
 			if (hit.collider) {

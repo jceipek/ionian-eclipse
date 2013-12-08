@@ -57,7 +57,7 @@ public class MoveToDest : MonoBehaviour
 	
 	void BufferLogic ()
 	{
-		int hitCount = Physics2D.LinecastNonAlloc (transform.up * m_lookaheadDistance + transform.position, transform.position + transform.up * m_followDistance, m_linecastResult);
+		int hitCount = Physics2D.LinecastNonAlloc (transform.up * m_lookaheadDistance * transform.localScale.y + transform.position, transform.position + transform.up * m_followDistance * transform.localScale.y, m_linecastResult);
 		if (hitCount > 0) {
 			m_distanceOffset = (transform.position - (Vector3)m_linecastResult [0].point).magnitude + ((Vector3)m_destination - transform.position).magnitude;
 		}
