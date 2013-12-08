@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &100000
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -24,7 +24,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   m_Layer: 0
-  m_Name: GunPos
+  m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,6 +76,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100008
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400008}
+  m_Layer: 0
+  m_Name: GunPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -83,10 +98,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.609984577, y: 1.06219578, z: 0}
+  m_LocalPosition: {x: -.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400004}
+  m_Father: {fileID: 400002}
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -94,9 +109,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .590621531, y: 1.06219578, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 400008}
+  - {fileID: 400000}
   m_Father: {fileID: 400004}
 --- !u!4 &400004
 Transform:
@@ -105,12 +122,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.96105671, y: -4.11949682, z: 0}
+  m_LocalPosition: {x: 25.7064247, y: 2.58402252, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400002}
-  - {fileID: 400000}
   - {fileID: 400006}
+  - {fileID: 400002}
   m_Father: {fileID: 0}
 --- !u!4 &400006
 Transform:
@@ -123,6 +139,17 @@ Transform:
   m_LocalScale: {x: 2.20000005, y: 2.20000005, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
+--- !u!4 &400008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400002}
 --- !u!50 &5000000
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -187,9 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b58231cb9093544b5fc4f51cd9e8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootAxis:
-  - R_XAxis_2
-  - R_YAxis_2
   moveAxis:
   - L_XAxis_2
   - L_YAxis_2
@@ -205,8 +229,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e2170184b764e598fd2d2256aa544b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fireButton: TriggersR_2
-  m_fireButtonIsAxis: 1
+  shootAxis:
+  - R_XAxis_2
+  - R_YAxis_2
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,13 +244,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_gunPos:
-  - {fileID: 400002}
+  - {fileID: 400008}
   - {fileID: 400000}
   m_bulletColor: {r: 1, g: 1, b: 1, a: 1}
   m_bulletSpeed: 30
   m_bulletForce: 10
   m_bulletDamage: 1
   m_cooldownSeconds: .100000001
+  m_turretPos: {fileID: 400002}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

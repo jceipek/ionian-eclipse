@@ -202,13 +202,13 @@ MonoBehaviour:
   - L_YAxis_1
   m_teleportButtonIsAxis: 1
   m_teleportButtons:
-  - TriggersL_1
   - TriggersR_1
+  - TriggersL_1
   m_moveBehavior: {fileID: 11400012}
   m_shadowMoveBehavior: {fileID: 11400004}
   m_teleportCooldownSeconds: 2
   m_carryRadius: 5
-  m_unisonTime: .100000001
+  m_unisonTime: .0500000007
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

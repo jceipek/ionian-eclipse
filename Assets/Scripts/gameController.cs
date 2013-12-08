@@ -5,7 +5,6 @@ using System.Collections;
 
 public class gameController : MonoBehaviour
 {
-	public string[] shootAxis = new string[2];
 	public string[] moveAxis = new string[2];
 	public float m_torqueForce;
 	private Rigidbody2D m_rigidbody;
@@ -33,11 +32,8 @@ public class gameController : MonoBehaviour
 		float horizontal = Input.GetAxis (moveAxis [0]);
 		float vertical = Input.GetAxis (moveAxis [1]);
 
-		float lookHorizontal = Input.GetAxis (shootAxis [0]);
-		float lookVertical = Input.GetAxis (shootAxis [1]);
-
 		m_moveBehavior.Move (horizontal, -vertical);
 
-		m_rigidbody.AddTorque (GetTorque (transform.up, (new Vector3 (lookHorizontal, -lookVertical)).normalized));
+		m_rigidbody.AddTorque (GetTorque (transform.up, (new Vector3 (horizontal, -vertical)).normalized));
 	}
 }

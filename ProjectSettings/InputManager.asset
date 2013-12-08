@@ -1106,7 +1106,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 8
     joyNum: 1
   - serializedVersion: 3
     m_Name: TriggersL_2
@@ -1122,7 +1122,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 8
     joyNum: 4
   - serializedVersion: 3
     m_Name: TriggersL_3
@@ -1138,7 +1138,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 8
     joyNum: 4
   - serializedVersion: 3
     m_Name: TriggersL_4
@@ -1154,7 +1154,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 8
     joyNum: 4
   - serializedVersion: 3
     m_Name: Fire
