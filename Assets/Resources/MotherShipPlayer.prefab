@@ -36,7 +36,8 @@ GameObject:
   - 114: {fileID: 11400016}
   - 114: {fileID: 11400018}
   - 114: {fileID: 11400020}
-  m_Layer: 0
+  - 114: {fileID: 11400022}
+  m_Layer: 10
   m_Name: MotherShipPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -124,7 +125,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.12960124, y: -19.1026955, z: 0}
+  m_LocalPosition: {x: .0775537491, y: -18.0392036, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400010}
@@ -287,6 +288,7 @@ MonoBehaviour:
   m_bulletDamage: 1
   m_cooldownSeconds: .100000001
   m_turretPos: {fileID: 0}
+  m_bulletSize: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,6 +363,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_visualCooldownIndicator:
   - {fileID: 21200004}
+--- !u!114 &11400022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87521386fcef5462dbea8b3b659793c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rechargeTime: 2
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

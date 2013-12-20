@@ -244,7 +244,7 @@ MonoBehaviour:
   m_minDamage: 1
   m_maxSpeed: 50
   m_minSpeed: 5
-  m_maxHealth: 200
+  m_maxHealth: 100
   m_minHealth: 3
   m_maxBulletSize: 3.5
   m_maxEnemySize: 3.5

@@ -20,7 +20,7 @@ GameObject:
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
   - 60: {fileID: 6000000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ship
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -38,7 +38,8 @@ GameObject:
   - 212: {fileID: 21200002}
   - 50: {fileID: 5000002}
   - 114: {fileID: 11400020}
-  m_Layer: 0
+  - 60: {fileID: 6000002}
+  m_Layer: 9
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -16.5411625, y: .0812035799, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400008}
@@ -212,6 +213,35 @@ PolygonCollider2D:
       - {x: -.310424805, y: -.853407204}
       - {x: -.0299999993, y: -1.30999994}
       - {x: .049999997, y: -1.30999994}
+--- !u!60 &6000002
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: .179999992, y: -.819999993}
+      - {x: .325798035, y: -.576809645}
+      - {x: .510427475, y: -.574202359}
+      - {x: .579999924, y: -.47536847}
+      - {x: .439603806, y: -.263433576}
+      - {x: .0678215027, y: 1.30957091}
+      - {x: -.0626068115, y: 1.31217813}
+      - {x: -.436225891, y: -.256226659}
+      - {x: -.583189011, y: -.492761254}
+      - {x: -.507822037, y: -.568987906}
+      - {x: -.280000001, y: -.599999964}
+      - {x: -.140000001, y: -.799999952}
+      - {x: -.299999982, y: -.859999955}
+      - {x: -.280000001, y: -1.01999998}
+      - {x: -.0774154663, y: -1.31363404}
+      - {x: .0724544525, y: -1.31334412}
+      - {x: .32128334, y: -.979999959}
+      - {x: .299999982, y: -.819999993}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,7 +421,7 @@ MonoBehaviour:
   - TriggersR_1
   m_moveBehavior: {fileID: 11400010}
   m_shadowMoveBehavior: {fileID: 11400020}
-  m_teleportCooldownSeconds: 2
+  m_teleportCooldownSeconds: 1
   m_carryRadius: 5
   m_unisonTime: .0500000007
 --- !u!114 &11400026
