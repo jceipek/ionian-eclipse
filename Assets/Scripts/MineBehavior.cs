@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MineBehavior : MonoBehaviour
 {
+		public AudioClip m_explosionSound;
 		public float m_force = 1000f;	
 		public float m_damage = 30f;
 		public float m_radius = 6f;
@@ -53,6 +54,7 @@ public class MineBehavior : MonoBehaviour
 				CheckHit ();
 				if (m_mineAbility)
 						m_mineAbility.DecrementMineCount ();
+				AudioSource.PlayClipAtPoint (m_explosionSound, transform.position);
 				Destroy (gameObject);
 		}
 

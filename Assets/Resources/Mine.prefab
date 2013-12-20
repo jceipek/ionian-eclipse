@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b95cfc5b14f2b3459947fb087db18b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_explosionSound: {fileID: 8300000, guid: f160b1a404b944234afed56e010f2bbd, type: 3}
   m_force: 300
   m_damage: 30
   m_radius: 7

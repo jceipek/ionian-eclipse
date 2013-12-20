@@ -409,6 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b6f74e54f084ac49227a9180265858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_teleportSound: {fileID: 8300000, guid: 3a3866932aa6f4523bc380b9da333b1f, type: 3}
   m_controlAxis:
   - R_XAxis_1
   - R_YAxis_1

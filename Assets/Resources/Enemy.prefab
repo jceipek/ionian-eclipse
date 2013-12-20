@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf478331192f416da56605e83c3c87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_fireSound: {fileID: 8300000, guid: 8f3ac6bb9772d44d1ad69296352fd1f0, type: 3}
   m_gunPos:
   - {fileID: 400002}
   m_bulletColor: {r: 0, g: 1, b: .337931156, a: 1}
