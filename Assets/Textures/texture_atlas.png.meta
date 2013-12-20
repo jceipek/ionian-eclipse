@@ -125,8 +125,8 @@ TextureImporter:
     - name: Big Ship
       rect:
         serializedVersion: 2
-        x: 139
-        y: 142
+        x: 240
+        y: 282
         width: 1182
         height: 1444
       alignment: 0
@@ -183,6 +183,33 @@ TextureImporter:
         y: 1368
         width: 113
         height: 263
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Mission Failed
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 146
+        width: 1046
+        height: 119
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Objective Achieved
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 9
+        width: 1413
+        height: 130
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Press any button
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 153
+        width: 917
+        height: 101
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 
